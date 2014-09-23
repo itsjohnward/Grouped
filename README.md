@@ -7,7 +7,7 @@ Features:
 
  - Helps students find other students to study with by allowing students to post when, where and what they are studying.
  
- Implementation:
+Implementation:
  
  - Apple Maps API: https://developer.apple.com/maps/
  - Parse: https://www.parse.com/
