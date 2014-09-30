@@ -13,6 +13,10 @@
 		20AA7BD319D22C5300960290 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20AA7BD219D22C5300960290 /* Images.xcassets */; };
 		20AA7BD619D22C5300960290 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20AA7BD419D22C5300960290 /* LaunchScreen.xib */; };
 		20AA7BE219D22C5300960290 /* GroupedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AA7BE119D22C5300960290 /* GroupedTests.swift */; };
+		20B9504019DB6160003BA007 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9503F19DB6160003BA007 /* CustomCell.swift */; };
+		20B9504219DB6253003BA007 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9504119DB6253003BA007 /* FeedController.swift */; };
+		20B9504419DB6AD5003BA007 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9504319DB6AD5003BA007 /* ProfileController.swift */; };
+		20B9504619DB6E23003BA007 /* NewPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9504519DB6E23003BA007 /* NewPostController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		20AA7BDB19D22C5300960290 /* GroupedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroupedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20AA7BE019D22C5300960290 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20AA7BE119D22C5300960290 /* GroupedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedTests.swift; sourceTree = "<group>"; };
+		20B9503F19DB6160003BA007 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCell.swift; path = ../CustomCell.swift; sourceTree = "<group>"; };
+		20B9504119DB6253003BA007 /* FeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
+		20B9504319DB6AD5003BA007 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		20B9504519DB6E23003BA007 /* NewPostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +85,16 @@
 		20AA7BC819D22C5300960290 /* Grouped */ = {
 			isa = PBXGroup;
 			children = (
+				20B9503F19DB6160003BA007 /* CustomCell.swift */,
 				20AA7BCB19D22C5300960290 /* AppDelegate.swift */,
 				20AA7BCD19D22C5300960290 /* ViewController.swift */,
 				20AA7BCF19D22C5300960290 /* Main.storyboard */,
 				20AA7BD219D22C5300960290 /* Images.xcassets */,
 				20AA7BD419D22C5300960290 /* LaunchScreen.xib */,
 				20AA7BC919D22C5300960290 /* Supporting Files */,
+				20B9504119DB6253003BA007 /* FeedController.swift */,
+				20B9504319DB6AD5003BA007 /* ProfileController.swift */,
+				20B9504519DB6E23003BA007 /* NewPostController.swift */,
 			);
 			path = Grouped;
 			sourceTree = "<group>";
@@ -212,8 +224,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20B9504419DB6AD5003BA007 /* ProfileController.swift in Sources */,
 				20AA7BCE19D22C5300960290 /* ViewController.swift in Sources */,
+				20B9504619DB6E23003BA007 /* NewPostController.swift in Sources */,
+				20B9504019DB6160003BA007 /* CustomCell.swift in Sources */,
 				20AA7BCC19D22C5300960290 /* AppDelegate.swift in Sources */,
+				20B9504219DB6253003BA007 /* FeedController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +423,7 @@
 				20AA7BE719D22C5300960290 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		20AA7BE819D22C5300960290 /* Build configuration list for PBXNativeTarget "GroupedTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +432,7 @@
 				20AA7BEA19D22C5300960290 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
