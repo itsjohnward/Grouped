@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var button: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +23,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
     //App Key: Qkmcxbh3O4q3kx754JIvBPOBc3DS3hYBOAtempUt
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        
+        
+    }
     
 }
 

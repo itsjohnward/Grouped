@@ -17,45 +17,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vfx-Du-5HH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGa-l6-6Cj">
                                 <rect key="frame" x="16" y="285" width="568" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ocl-If-IfL">
-                                <rect key="frame" x="16" y="247" width="568" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Whj-OH-CNJ">
-                                <rect key="frame" x="538" y="323" width="46" height="30"/>
-                                <state key="normal" title="Login">
+                                <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Sign In">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="HZR-Cn-O4v" kind="show" id="B0u-Jl-1kj"/>
+                                    <segue destination="HZR-Cn-O4v" kind="show" id="1ZH-DO-OOE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome to Grouped!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgC-Yd-LAj">
-                                <rect key="frame" x="16" y="157" width="568" height="20.5"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JAc-H5-l1T">
+                                <rect key="frame" x="16" y="247" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKL-D7-C6o">
+                                <rect key="frame" x="16" y="209" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Grouped!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9A-my-2et">
+                                <rect key="frame" x="16" y="47" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" none="YES" button="YES"/>
+                            <bool key="isElement" value="NO"/>
+                        </accessibility>
                         <constraints>
-                            <constraint firstItem="Ocl-If-IfL" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="2KC-mg-wCg"/>
-                            <constraint firstItem="BgC-Yd-LAj" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="4ty-me-LkG"/>
-                            <constraint firstItem="Ocl-If-IfL" firstAttribute="top" secondItem="BgC-Yd-LAj" secondAttribute="bottom" constant="69.5" id="8w3-IV-Fk2"/>
-                            <constraint firstItem="Whj-OH-CNJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="MoQ-W9-h3i"/>
-                            <constraint firstItem="Vfx-Du-5HH" firstAttribute="top" secondItem="Ocl-If-IfL" secondAttribute="bottom" constant="8" id="Q6g-QR-3WL"/>
-                            <constraint firstItem="Vfx-Du-5HH" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Qbh-Gt-EK9"/>
-                            <constraint firstItem="Ocl-If-IfL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cYE-e1-EOQ"/>
-                            <constraint firstItem="Whj-OH-CNJ" firstAttribute="top" secondItem="Vfx-Du-5HH" secondAttribute="bottom" constant="8" id="gPh-Zp-UR7"/>
-                            <constraint firstItem="Vfx-Du-5HH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="guC-FB-Xgr"/>
-                            <constraint firstItem="BgC-Yd-LAj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="oU7-SQ-hJ5"/>
+                            <constraint firstItem="JAc-H5-l1T" firstAttribute="top" secondItem="jKL-D7-C6o" secondAttribute="bottom" constant="8" id="DI5-WL-0nH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wGa-l6-6Cj" secondAttribute="bottom" constant="285" id="HP8-kf-L7U"/>
+                            <constraint firstItem="wGa-l6-6Cj" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="J97-fm-DHG"/>
+                            <constraint firstItem="jKL-D7-C6o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Qcd-kH-6lT"/>
+                            <constraint firstItem="wGa-l6-6Cj" firstAttribute="top" secondItem="JAc-H5-l1T" secondAttribute="bottom" constant="8" id="Qm8-DY-rXq"/>
+                            <constraint firstItem="wGa-l6-6Cj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="R7W-jV-LMn"/>
+                            <constraint firstItem="T9A-my-2et" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="SPw-L9-yI7"/>
+                            <constraint firstItem="JAc-H5-l1T" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Wi0-8x-YkP"/>
+                            <constraint firstItem="JAc-H5-l1T" firstAttribute="top" secondItem="jKL-D7-C6o" secondAttribute="bottom" constant="8" id="X0e-ul-lBK"/>
+                            <constraint firstItem="JAc-H5-l1T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ZgR-XY-exF"/>
+                            <constraint firstItem="T9A-my-2et" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="27" id="cUg-GU-nIZ"/>
+                            <constraint firstItem="T9A-my-2et" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="fwU-NA-hDg"/>
+                            <constraint firstItem="wGa-l6-6Cj" firstAttribute="top" secondItem="JAc-H5-l1T" secondAttribute="bottom" constant="8" id="iY0-WI-8nM"/>
+                            <constraint firstItem="jKL-D7-C6o" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="vTx-j6-pcY"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="DI5-WL-0nH"/>
+                                <exclude reference="Qm8-DY-rXq"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
