@@ -29,7 +29,6 @@
 		20E299EC19F9FE1F00C1A61D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E219F9FE1F00C1A61D /* Security.framework */; };
 		20E299ED19F9FE1F00C1A61D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E319F9FE1F00C1A61D /* StoreKit.framework */; };
 		20E299EE19F9FE1F00C1A61D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E419F9FE1F00C1A61D /* SystemConfiguration.framework */; };
-		20FCCAE71A006A0900515DA2 /* CustomClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FCCAE61A006A0900515DA2 /* CustomClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +56,7 @@
 		20B9504119DB6253003BA007 /* FeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		20B9504319DB6AD5003BA007 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		20B9504519DB6E23003BA007 /* NewPostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostController.swift; sourceTree = "<group>"; };
+		20DA0F841A07206900D06ACA /* Grouped-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Grouped-Bridging-Header.h"; sourceTree = "<group>"; };
 		20E299D719F9FDA000C1A61D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		20E299D819F9FDA000C1A61D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		20E299DB19F9FE1F00C1A61D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -69,8 +69,6 @@
 		20E299E219F9FE1F00C1A61D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		20E299E319F9FE1F00C1A61D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		20E299E419F9FE1F00C1A61D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		20FCCAE51A006A0800515DA2 /* Grouped-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Grouped-Bridging-Header.h"; sourceTree = "<group>"; };
-		20FCCAE61A006A0900515DA2 /* CustomClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,17 +104,7 @@
 		20AA7BBD19D22C5300960290 = {
 			isa = PBXGroup;
 			children = (
-				20E299DB19F9FE1F00C1A61D /* AudioToolbox.framework */,
-				20E299DC19F9FE1F00C1A61D /* CFNetwork.framework */,
-				20E299DD19F9FE1F00C1A61D /* CoreGraphics.framework */,
-				20E299DE19F9FE1F00C1A61D /* CoreLocation.framework */,
-				20E299DF19F9FE1F00C1A61D /* libz.dylib */,
-				20E299E019F9FE1F00C1A61D /* MobileCoreServices.framework */,
-				20E299E119F9FE1F00C1A61D /* QuartzCore.framework */,
-				20E299E219F9FE1F00C1A61D /* Security.framework */,
-				20E299E319F9FE1F00C1A61D /* StoreKit.framework */,
-				20E299E419F9FE1F00C1A61D /* SystemConfiguration.framework */,
-				20E299D619F9FD8400C1A61D /* Framworks */,
+				20DA0F831A071F1A00D06ACA /* Frameworks */,
 				20AA7BC819D22C5300960290 /* Grouped */,
 				20AA7BDE19D22C5300960290 /* GroupedTests */,
 				20AA7BC719D22C5300960290 /* Products */,
@@ -135,6 +123,7 @@
 		20AA7BC819D22C5300960290 /* Grouped */ = {
 			isa = PBXGroup;
 			children = (
+				20DA0F841A07206900D06ACA /* Grouped-Bridging-Header.h */,
 				20B9503F19DB6160003BA007 /* CustomCell.swift */,
 				20AA7BCB19D22C5300960290 /* AppDelegate.swift */,
 				20AA7BCD19D22C5300960290 /* ViewController.swift */,
@@ -145,8 +134,6 @@
 				20B9504119DB6253003BA007 /* FeedController.swift */,
 				20B9504319DB6AD5003BA007 /* ProfileController.swift */,
 				20B9504519DB6E23003BA007 /* NewPostController.swift */,
-				20FCCAE61A006A0900515DA2 /* CustomClass.m */,
-				20FCCAE51A006A0800515DA2 /* Grouped-Bridging-Header.h */,
 			);
 			path = Grouped;
 			sourceTree = "<group>";
@@ -176,13 +163,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		20E299D619F9FD8400C1A61D /* Framworks */ = {
+		20DA0F831A071F1A00D06ACA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				20E299DB19F9FE1F00C1A61D /* AudioToolbox.framework */,
+				20E299DC19F9FE1F00C1A61D /* CFNetwork.framework */,
+				20E299DD19F9FE1F00C1A61D /* CoreGraphics.framework */,
+				20E299DE19F9FE1F00C1A61D /* CoreLocation.framework */,
+				20E299DF19F9FE1F00C1A61D /* libz.dylib */,
+				20E299E019F9FE1F00C1A61D /* MobileCoreServices.framework */,
+				20E299E119F9FE1F00C1A61D /* QuartzCore.framework */,
+				20E299E219F9FE1F00C1A61D /* Security.framework */,
+				20E299E319F9FE1F00C1A61D /* StoreKit.framework */,
+				20E299E419F9FE1F00C1A61D /* SystemConfiguration.framework */,
 				20E299D719F9FDA000C1A61D /* Bolts.framework */,
 				20E299D819F9FDA000C1A61D /* Parse.framework */,
 			);
-			name = Framworks;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,7 +284,6 @@
 			files = (
 				20B9504419DB6AD5003BA007 /* ProfileController.swift in Sources */,
 				20AA7BCE19D22C5300960290 /* ViewController.swift in Sources */,
-				20FCCAE71A006A0900515DA2 /* CustomClass.m in Sources */,
 				20B9504619DB6E23003BA007 /* NewPostController.swift in Sources */,
 				20B9504019DB6160003BA007 /* CustomCell.swift in Sources */,
 				20AA7BCC19D22C5300960290 /* AppDelegate.swift in Sources */,
