@@ -15,15 +15,7 @@ class FeedController:  UIViewController, UITableViewDelegate, UITableViewDataSou
     
     @IBOutlet var tableView: UITableView?
     
-    var items: [(String, String)] = [
-        ("❤", "swift 1.jpeg"),
-        ("We", "swift 2.jpeg"),
-        ("❤", "swift 3.jpeg"),
-        ("Swift", "swift 4.jpeg"),
-        ("❤", "swift 5.jpeg")
-    ]
     let tableData = ["One","Two","Three"]
-    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -38,9 +30,10 @@ class FeedController:  UIViewController, UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //TODO 
+        //Load Nearby study sessions
     }
     
     required init(coder aDecoder: NSCoder)
