@@ -30,6 +30,8 @@
 		20E299EC19F9FE1F00C1A61D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E219F9FE1F00C1A61D /* Security.framework */; };
 		20E299ED19F9FE1F00C1A61D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E319F9FE1F00C1A61D /* StoreKit.framework */; };
 		20E299EE19F9FE1F00C1A61D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E419F9FE1F00C1A61D /* SystemConfiguration.framework */; };
+		791EC4631A0803F3006E208E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791EC4621A0803F3006E208E /* User.swift */; };
+		796CBE2A1A0809A300228A4F /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796CBE291A0809A300228A4F /* Group.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		20E299E219F9FE1F00C1A61D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		20E299E319F9FE1F00C1A61D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		20E299E419F9FE1F00C1A61D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		791EC4621A0803F3006E208E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		796CBE291A0809A300228A4F /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 				20B9504319DB6AD5003BA007 /* ProfileController.swift */,
 				20B9504519DB6E23003BA007 /* NewPostController.swift */,
 				203568D01A07273400EDD5FA /* SignUpViewController.swift */,
+				791EC4621A0803F3006E208E /* User.swift */,
+				796CBE291A0809A300228A4F /* Group.swift */,
 			);
 			path = Grouped;
 			sourceTree = "<group>";
@@ -285,10 +291,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				796CBE2A1A0809A300228A4F /* Group.swift in Sources */,
 				20B9504419DB6AD5003BA007 /* ProfileController.swift in Sources */,
 				203568D11A07273400EDD5FA /* SignUpViewController.swift in Sources */,
 				20AA7BCE19D22C5300960290 /* ViewController.swift in Sources */,
 				20B9504619DB6E23003BA007 /* NewPostController.swift in Sources */,
+				791EC4631A0803F3006E208E /* User.swift in Sources */,
 				20B9504019DB6160003BA007 /* CustomCell.swift in Sources */,
 				20AA7BCC19D22C5300960290 /* AppDelegate.swift in Sources */,
 				20B9504219DB6253003BA007 /* FeedController.swift in Sources */,
