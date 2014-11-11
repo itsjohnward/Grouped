@@ -9,8 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    @IBOutlet weak var button: UIButton!
+	
+	@IBOutlet weak var usernameField: UITextField!
+	@IBOutlet weak var passwordField: UITextField!
     
 
     override func viewDidLoad() {
@@ -28,7 +29,7 @@ class ViewController: UIViewController {
     @IBAction func signIn(AnyObject) {
         println("Sign In User Button Tapped!")
         
-        PFUser.logInWithUsernameInBackground("grouped", password: "password", { (PFUser user, NSError error) -> Void in
+        PFUser.logInWithUsernameInBackground(usernameField.text, password: passwordField.text, { (PFUser user, NSError error) -> Void in
             if((user) != nil){
                 println("Sign In Successful!")
                 self.performSegueWithIdentifier("FeedSegue", sender: self)
@@ -46,8 +47,15 @@ class ViewController: UIViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
-        
     }
-    
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if segue.identifier == "SignUpSegue" {
+			var suvc:SignUpViewController = segue.destinationViewController as SignUpViewController
+			suvc.usernameString = usernameField.text
+			suvc.passwordString = passwordField.text
+		}
+	}
+	
 }
 

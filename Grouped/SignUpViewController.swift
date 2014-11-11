@@ -9,11 +9,21 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
-
+	
+	var usernameString = ""
+	var passwordString = ""
+	@IBOutlet weak var usernameField: UITextField!
+	@IBOutlet weak var passwordField: UITextField!
+	@IBOutlet weak var emailField: UITextField!
+	@IBOutlet weak var nicknameField: UITextField!
+	@IBOutlet weak var ageField: UITextField!
+	@IBOutlet weak var schoolField: UITextField!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+		usernameField.text = usernameString
+		passwordField.text = passwordString
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,23 +33,44 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpUser(AnyObject) {
         println("Sign Up User Button Tapped!")
-        
+		
         var user = PFUser()
-        user.username = "grouped"
-        user.password = "password"
-        user.email = "email@example.com"
-        
-        user.setObject("Jonathan Samudio", forKey: "name")
-        user.setObject( 20 , forKey: "age")
-        user.setObject("NYU Polytechnic School of Engineering", forKey: "school")
+        user.username = usernameField.text
+        user.password = passwordField.text
+        user.email = emailField.text
+		
+        user.setObject(nicknameField.text, forKey: "name")
+        user.setObject(ageField.text.toInt()! , forKey: "age")
+        user.setObject(schoolField.text, forKey: "school")
         
         user.signUpInBackgroundWithBlock { (Bool succeeded, NSError error) -> Void in
             if(succeeded){
                 println("Sign Up Success!")
+				self.performSegueWithIdentifier("FeedSegue", sender: self)
             }
             else {println("Sign Up Failed!")}
         }
     }
+	@IBAction func signUpDefaultUser(sender: AnyObject) {
+		println("Sign Up User Button Tapped!")
+		
+		var user = PFUser()
+		user.username = "grouped"
+		user.password = "password"
+		user.email = "email@example.com"
+		
+		user.setObject("Jonathan Samudio", forKey: "name")
+		user.setObject( 20 , forKey: "age")
+		user.setObject("NYU Polytechnic School of Engineering", forKey: "school")
+		
+		user.signUpInBackgroundWithBlock { (Bool succeeded, NSError error) -> Void in
+			if(succeeded){
+				println("Sign Up Success!")
+				self.performSegueWithIdentifier("FeedSegue", sender: self)
+			}
+			else {println("Sign Up Failed!")}
+		}
+	}
 
     /*
     // MARK: - Navigation
