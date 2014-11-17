@@ -17,7 +17,7 @@ Implementation:
 
 Latest Commit:
 
-======================= Progress: Most Network & GUI Finished ============================== Kevin Zeng ==
+======================= Progress: Most Network & GUI Finished ======================= Kevin Zeng ==
  - Working so far alone has demotivated me for this whole week, made no comments in code.
  - I'm not gonna work anymore until Thrusday or Friday, since most of it has been done.
  - Anyway, storyboard has roughly all the views except NewPostController.
