@@ -11,8 +11,8 @@ import UIKit
 
 
 class FeedController:  UIViewController, UITableViewDelegate, UITableViewDataSource{
-    
-    
+	
+	var user: User?
     @IBOutlet var tableView: UITableView?
     
     let tableData = ["One","Two","Three"]
@@ -45,17 +45,14 @@ class FeedController:  UIViewController, UITableViewDelegate, UITableViewDataSou
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+		if segue.identifier == "ProfileSegue" {
+			var pc:ProfileController = segue.destinationViewController as ProfileController
+			pc.user = user
+		} else if segue.identifier == "PostSegue" {
+			var npc:NewPostController = segue.destinationViewController as NewPostController
+			npc.user = user
+		}
+	}
 }

@@ -10,10 +10,15 @@ import Foundation
 import UIKit
 
 
-class FindController:  UITableViewController, UITableViewDelegate, UITableViewDataSource{
+class FindController:  UITableViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
 	
-    let tableData = ["One","Two","Three"]
-    
+	var user: User?
+    var tableData = [PFObject]()
+	
+	@IBOutlet var table: UITableView!
+	var locationManager = CLLocationManager()
+	var geoLoc: PFGeoPoint?
+	
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return tableData.count
@@ -22,17 +27,47 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell:CustomGroupCell = self.tableView?.dequeueReusableCellWithIdentifier("Cell") as CustomGroupCell
-        cell.loadItem(tableData[indexPath.row], subject: tableData[indexPath.row])
-        
+		
+		if tableData.count > indexPath.row {
+			var name = tableData[indexPath.row]["name"] as String
+			var hostName = tableData[indexPath.row]["hostUser"] as String
+			var subject = tableData[indexPath.row]["subject"] as String
+			cell.loadItem(name, hostName: hostName, subject: subject, time: tableData[indexPath.row]["time"] as NSDate,
+				coordinates: tableData[indexPath.row]["place"] as PFGeoPoint, homeGeo: geoLoc?)
+		}
+		
         return cell
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        //TODO 
-        //Load Nearby study sessions
-    }
-    
+		
+		var query = PFQuery(className: "Group")
+		//query.whereKey("username", equalTo: usernameField.text)
+		tableData += query.findObjects() as [PFObject]
+		
+		locationManager = CLLocationManager()
+		
+		locationManager.delegate = self
+		locationManager.desiredAccuracy = kCLLocationAccuracyBest
+		
+		locationManager.requestAlwaysAuthorization()
+		locationManager.requestWhenInUseAuthorization()
+		
+		locationManager.startUpdatingLocation()
+		
+		geoLoc = PFGeoPoint(location: locationManager.location)
+		
+		super.viewDidLoad()
+	}
+	
+	func locationManager(manager:CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+		//locationManager.stopUpdatingLocation()
+	}
+	func locationManager(manager:CLLocationManager!, didFailWithError error: NSError!) {
+		var alert = UIAlertController(title: "Network Error", message: "Looks like you're offline.", preferredStyle: .Alert)
+		presentViewController(alert, animated: true, completion: nil)
+	}
+	
     required init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
@@ -42,17 +77,28 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+		if segue.identifier == "CreateGroupSegue" {
+			var cgc:CreateGroupController = segue.destinationViewController as CreateGroupController
+			cgc.user = user
+		} else if segue.identifier == "ViewGroupSegue" {
+			var jgc:JoinGroupController = segue.destinationViewController as JoinGroupController
+			jgc.user = user
+			
+			var idx = table.indexPathForSelectedRow()!.row
+			var loc = tableData[idx]["place"] as PFGeoPoint
+			var time = (tableData[idx]["time"] as NSDate).timeIntervalSinceNow
+			var timeString = "\(time) from now"
+			if time < 0 {
+				timeString = "Ongoing"
+			}
+			jgc.strings.append(tableData[idx]["name"] as String)
+			jgc.strings.append(tableData[idx]["hostUser"] as String)
+			jgc.strings.append(tableData[idx]["subject"] as String)
+			jgc.strings.append("\(loc.latitude), \(loc.longitude)")
+			jgc.strings.append(timeString)
+			jgc.strings.append(tableData[idx]["description"] as String)
+		}
     }
-    */
-    
-    
 }

@@ -10,14 +10,15 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 	
-	var usernameString = ""
-	var passwordString = ""
 	@IBOutlet weak var usernameField: UITextField!
 	@IBOutlet weak var passwordField: UITextField!
 	@IBOutlet weak var emailField: UITextField!
 	@IBOutlet weak var nicknameField: UITextField!
 	@IBOutlet weak var ageField: UITextField!
 	@IBOutlet weak var schoolField: UITextField!
+	
+	var usernameString = ""
+	var passwordString = ""
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,14 +40,14 @@ class SignUpViewController: UIViewController {
         user.password = passwordField.text
         user.email = emailField.text
 		
-        user.setObject(nicknameField.text, forKey: "name")
-        user.setObject(ageField.text.toInt()! , forKey: "age")
-        user.setObject(schoolField.text, forKey: "school")
+        user["name"] = nicknameField.text
+        user["age"] = ageField.text.toInt()!
+        user["school"] = schoolField.text
         
         user.signUpInBackgroundWithBlock { (Bool succeeded, NSError error) -> Void in
             if(succeeded){
                 println("Sign Up Success!")
-				self.performSegueWithIdentifier("FeedSegue", sender: self)
+				self.performSegueWithIdentifier("GroupFindSegue2", sender: self)
             }
             else {println("Sign Up Failed!")}
         }
@@ -64,22 +65,23 @@ class SignUpViewController: UIViewController {
 		user.setObject("NYU Polytechnic School of Engineering", forKey: "school")
 		
 		user.signUpInBackgroundWithBlock { (Bool succeeded, NSError error) -> Void in
-			if(succeeded){
+			if succeeded {
 				println("Sign Up Success!")
-				self.performSegueWithIdentifier("FeedSegue", sender: self)
+				self.performSegueWithIdentifier("GroupFindSegue2", sender: self)
 			}
-			else {println("Sign Up Failed!")}
+			else {
+				var alert = UIAlertController(title: "Registering Error", message: "Invalid email (Probably)", preferredStyle: .Alert)
+				self.presentViewController(alert, animated: true, completion: nil)}
 		}
 	}
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if segue.identifier == "GroupFindSegue2" {
+			var fc:FindController = segue.destinationViewController as FindController
+			
+			fc.user = User(username: usernameField.text, password: passwordField.text,
+				email: emailField.text, name: nicknameField.text, age: ageField.text.toInt()!,
+				school: schoolField.text)
+		}
+	}
 }

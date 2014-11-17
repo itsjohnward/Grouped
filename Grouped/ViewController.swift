@@ -16,8 +16,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    
+		// Do any additional setup after loading the view, typically from a nib.
+		
         //var object = PFObject(className: "TestClass")
         //object.addObject("Banana", forKey: "favoriteFood")
         //object.addObject("Chocolate", forKey: "favoriteIceCream")
@@ -27,12 +27,10 @@ class ViewController: UIViewController {
     
     //sets up a Parse User
     @IBAction func signIn(AnyObject) {
-        println("Sign In User Button Tapped!")
-        
         PFUser.logInWithUsernameInBackground(usernameField.text, password: passwordField.text, { (PFUser user, NSError error) -> Void in
-            if((user) != nil){
+            if user != nil {
                 println("Sign In Successful!")
-                self.performSegueWithIdentifier("FeedSegue", sender: self)
+                self.performSegueWithIdentifier("GroupFindSegue", sender: self)
             }
             else {println("Sign In Failed!")}
         
@@ -54,6 +52,16 @@ class ViewController: UIViewController {
 			var suvc:SignUpViewController = segue.destinationViewController as SignUpViewController
 			suvc.usernameString = usernameField.text
 			suvc.passwordString = passwordField.text
+		}
+		else if segue.identifier == "GroupFindSegue" {
+			var fc:FindController = segue.destinationViewController as FindController
+			var query = PFQuery(className: "_User")
+			query.whereKey("username", equalTo: usernameField.text)
+			var object = query.findObjects()[0] as PFObject
+			
+			fc.user = User(username: object["username"] as String, password: "",
+				email: object["email"] as String, name: object["name"] as String, age: object["age"] as Int,
+				school: object["school"] as String)
 		}
 	}
 	

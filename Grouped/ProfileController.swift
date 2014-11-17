@@ -13,12 +13,27 @@ import Foundation
 import UIKit
 
 class ProfileController: UIViewController {
-    
+	
+	var user: User?
     @IBOutlet weak var logOff: UIButton!
+	@IBOutlet weak var usernameLabel: UITextField!
+	@IBOutlet weak var nicknameLabel: UITextField!
+	@IBOutlet weak var emailLabel: UITextField!
+	@IBOutlet weak var ageLabel: UITextField!
+	@IBOutlet weak var schoolLabel: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+		if user == nil {
+			self.performSegueWithIdentifier("LogoutSegue", sender: self)
+			return
+		}
+		usernameLabel.text = user!.username
+		nicknameLabel.text = user!.name
+		emailLabel.text = user!.email
+		ageLabel.text = "\(user!.age)"
+		schoolLabel.text = user!.school
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,19 +44,19 @@ class ProfileController: UIViewController {
     @IBAction func logOff(AnyObject) {
         //TODO 
         //Code to complete logOff of Account
-        self.dismissViewControllerAnimated(true, completion: {});
+		self.performSegueWithIdentifier("LogoutSegue", sender: self)
+        //self.dismissViewControllerAnimated(true, completion: {});
     }
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+	
+	@IBAction func leaveGroup(sender: AnyObject) {
+		self.performSegueWithIdentifier("LeaveGroupSegue", sender: self)
+	}
+	
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+		if segue.identifier == "LeaveGroupSegue" {
+			var fc:FindController = segue.destinationViewController as FindController
+			fc.user = user
+		}
     }
-    */
-    
 }
 

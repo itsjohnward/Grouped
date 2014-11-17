@@ -32,6 +32,8 @@
 		791EC4631A0803F3006E208E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791EC4621A0803F3006E208E /* User.swift */; };
 		796CBE2A1A0809A300228A4F /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796CBE291A0809A300228A4F /* Group.swift */; };
 		79AB76831A18166300319EE2 /* CustomGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB76821A18166300319EE2 /* CustomGroupCell.swift */; };
+		79F1D4AD1A1905E30011D5CF /* CreateGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1D4AC1A1905E30011D5CF /* CreateGroupController.swift */; };
+		79F1D4AF1A1997400011D5CF /* JoinGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1D4AE1A1997400011D5CF /* JoinGroupController.swift */; };
 		79F7640B1A17FD9B009D0283 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F764091A17FD9B009D0283 /* Main.storyboard */; };
 		79F7640D1A180B42009D0283 /* FindController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F7640C1A180B42009D0283 /* FindController.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +79,8 @@
 		791EC4621A0803F3006E208E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		796CBE291A0809A300228A4F /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		79AB76821A18166300319EE2 /* CustomGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGroupCell.swift; sourceTree = "<group>"; };
+		79F1D4AC1A1905E30011D5CF /* CreateGroupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupController.swift; sourceTree = "<group>"; };
+		79F1D4AE1A1997400011D5CF /* JoinGroupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGroupController.swift; sourceTree = "<group>"; };
 		79F7640A1A17FD9B009D0283 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Grouped/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79F7640C1A180B42009D0283 /* FindController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,22 +137,24 @@
 		20AA7BC819D22C5300960290 /* Grouped */ = {
 			isa = PBXGroup;
 			children = (
-				79F764091A17FD9B009D0283 /* Main.storyboard */,
 				20DA0F841A07206900D06ACA /* Grouped-Bridging-Header.h */,
 				20AA7BCB19D22C5300960290 /* AppDelegate.swift */,
 				20AA7BD219D22C5300960290 /* Images.xcassets */,
 				20AA7BD419D22C5300960290 /* LaunchScreen.xib */,
-				20AA7BC919D22C5300960290 /* Supporting Files */,
+				79F764091A17FD9B009D0283 /* Main.storyboard */,
 				20AA7BCD19D22C5300960290 /* ViewController.swift */,
-				20B9504119DB6253003BA007 /* FeedController.swift */,
-				20B9503F19DB6160003BA007 /* CustomCell.swift */,
+				203568D01A07273400EDD5FA /* SignUpViewController.swift */,
 				79F7640C1A180B42009D0283 /* FindController.swift */,
 				79AB76821A18166300319EE2 /* CustomGroupCell.swift */,
+				79F1D4AE1A1997400011D5CF /* JoinGroupController.swift */,
+				20B9504119DB6253003BA007 /* FeedController.swift */,
+				20B9503F19DB6160003BA007 /* CustomCell.swift */,
 				20B9504319DB6AD5003BA007 /* ProfileController.swift */,
 				20B9504519DB6E23003BA007 /* NewPostController.swift */,
-				203568D01A07273400EDD5FA /* SignUpViewController.swift */,
+				79F1D4AC1A1905E30011D5CF /* CreateGroupController.swift */,
 				791EC4621A0803F3006E208E /* User.swift */,
 				796CBE291A0809A300228A4F /* Group.swift */,
+				20AA7BC919D22C5300960290 /* Supporting Files */,
 			);
 			path = Grouped;
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F1D4AF1A1997400011D5CF /* JoinGroupController.swift in Sources */,
 				796CBE2A1A0809A300228A4F /* Group.swift in Sources */,
 				20B9504419DB6AD5003BA007 /* ProfileController.swift in Sources */,
 				203568D11A07273400EDD5FA /* SignUpViewController.swift in Sources */,
@@ -304,6 +311,7 @@
 				20B9504619DB6E23003BA007 /* NewPostController.swift in Sources */,
 				791EC4631A0803F3006E208E /* User.swift in Sources */,
 				20B9504019DB6160003BA007 /* CustomCell.swift in Sources */,
+				79F1D4AD1A1905E30011D5CF /* CreateGroupController.swift in Sources */,
 				20AA7BCC19D22C5300960290 /* AppDelegate.swift in Sources */,
 				79F7640D1A180B42009D0283 /* FindController.swift in Sources */,
 				79AB76831A18166300319EE2 /* CustomGroupCell.swift in Sources */,

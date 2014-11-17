@@ -9,7 +9,8 @@
 import Foundation
 
 class Group : PFObject {
-    init(course:String, location:PFGeoPoint, description:String, time:NSDate = NSDate()) {
+	init(name:String, course:String, location:PFGeoPoint, description:String, time:NSDate = NSDate()) {
+		self.name = name
         self.course = course
         self.location = location
         self.group_description = description
@@ -18,7 +19,8 @@ class Group : PFObject {
         self.users = [String]()
         super.init()
     }
-    
+	
+	var name : String
     var course : String
     var users : [String]
     var location : PFGeoPoint
