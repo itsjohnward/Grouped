@@ -32,14 +32,14 @@ class CustomGroupCell: UITableViewCell {
 	
 	func loadItem(groupName: String, hostName: String, subject: String, time: NSDate, coordinates: PFGeoPoint, homeGeo: PFGeoPoint?) {
 		self.groupName.text = groupName
-		self.hostName.text = hostName
-		subjectLabel.text = subject
+		self.hostName.text = "Host: \(hostName)"
+		subjectLabel.text = "Studying: \(subject)"
 		
 		var diffTime = time.timeIntervalSinceNow
 		if diffTime < 0 {
-			timeLabel2.text = "Now"
+			timeLabel2.text = "Time: Now"
 		} else {
-			timeLabel2.text = "\(diffTime) from now"
+			timeLabel2.text = "Time: \(diffTime) seconds from now"
 		}
 		
 		if homeGeo != nil {
@@ -47,7 +47,7 @@ class CustomGroupCell: UITableViewCell {
 			var longDiff = coordinates.longitude - homeGeo!.longitude
 			
 			var diff = pow(pow(latDiff, 2)+pow(longDiff, 2), 0.5)
-			distanceAmountLabel.text = "\(diff)"
+			distanceAmountLabel.text = "\(diff) ft?"
 		} else {
 			distanceLabel.hidden = true
 			distanceAmountLabel.hidden = true
