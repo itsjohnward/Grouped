@@ -47,7 +47,7 @@ class CustomGroupCell: UITableViewCell {
 			var longDiff = coordinates.longitude - homeGeo!.longitude
 			
 			var diff = pow(pow(latDiff, 2)+pow(longDiff, 2), 0.5)
-			distanceAmountLabel.text = "\(diff) ft?"
+			distanceAmountLabel.text = "\(diff) miles"
 		} else {
 			distanceLabel.hidden = true
 			distanceAmountLabel.hidden = true

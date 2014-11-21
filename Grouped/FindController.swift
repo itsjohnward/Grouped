@@ -92,7 +92,7 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 			var idx = table.indexPathForSelectedRow()!.row
 			var loc = tableData[idx]["place"] as PFGeoPoint
 			var time = (tableData[idx]["time"] as NSDate).timeIntervalSinceNow
-			var timeString = "\(time) from now"
+			var timeString = "\(time) seconds from now"
 			if time < 0 {
 				timeString = "Ongoing"
 			}
