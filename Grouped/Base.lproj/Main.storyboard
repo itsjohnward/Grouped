@@ -557,7 +557,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="2se-ax-rtR" id="1w6-GF-vn7"/>
                     </connections>
@@ -690,7 +690,6 @@
                                 <rect key="frame" x="232" y="290" width="136" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -702,6 +701,7 @@
                     <navigationItem key="navigationItem" title="New Post" id="Dy5-Ua-ENU">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="Ffn-xW-af8"/>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FXg-c9-1pV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -831,6 +831,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="hbA-LI-aaP"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ageLabel" destination="Hkv-gt-MDV" id="Jlw-eJ-tF1"/>
                         <outlet property="emailLabel" destination="697-nS-opG" id="GFh-5y-c6S"/>
@@ -868,8 +869,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LOv-2L-Nzr"/>
-        <segue reference="E43-Ak-rfD"/>
         <segue reference="HJQ-BV-f0d"/>
+        <segue reference="Mfp-on-CEG"/>
+        <segue reference="3E4-pC-OxI"/>
     </inferredMetricsTieBreakers>
 </document>
