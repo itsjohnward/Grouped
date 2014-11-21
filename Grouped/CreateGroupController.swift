@@ -51,7 +51,10 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 		//locationManager.stopUpdatingLocation()
 	}
 	func locationManager(manager:CLLocationManager!, didFailWithError error: NSError!) {
-		var alert = UIAlertController(title: "Network Error", message: "Looks like you're offline.", preferredStyle: .Alert)
+		var alert = UIAlertController(title: "GPS Error", message: "We cannot detect your current location.", preferredStyle: .Alert)
+		var alertDismiss = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+			alert.dismissViewControllerAnimated(true, completion: nil)
+		}
 		presentViewController(alert, animated: true, completion: nil)
 	}
 	

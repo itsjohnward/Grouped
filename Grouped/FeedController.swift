@@ -15,7 +15,7 @@ class FeedController:  UIViewController, UITableViewDelegate, UITableViewDataSou
 	var user: User?
     @IBOutlet var tableView: UITableView?
     
-    let tableData = ["One","Two","Three"]
+    var tableData = ["HW1 - Code blackjack","HW2 - GUI blackjack","HW3 - elegante blackjack"]
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -32,8 +32,8 @@ class FeedController:  UIViewController, UITableViewDelegate, UITableViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //TODO 
-        //Load Nearby study sessions
+		
+		//Load messages?
     }
     
     required init(coder aDecoder: NSCoder)
@@ -43,7 +43,6 @@ class FeedController:  UIViewController, UITableViewDelegate, UITableViewDataSou
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {

@@ -40,9 +40,9 @@ class CustomGroupCell: UITableViewCell {
 		
 		var diffTime = time.timeIntervalSinceNow
 		if diffTime < 0 {
-			timeLabel2.text = "Now"
+			timeLabel2.text = "Time: Now"
 		} else {
-			timeLabel2.text = "\(diffTime) from now"
+			timeLabel2.text = "Time: \(diffTime) seconds from now"
 		}
 		
 		if homeGeo != nil {
