@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2008A3FA1A1FA9030010BD02 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2008A3F91A1FA9030010BD02 /* MapKit.framework */; };
 		203568D11A07273400EDD5FA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203568D01A07273400EDD5FA /* SignUpViewController.swift */; };
 		20AA7BCC19D22C5300960290 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AA7BCB19D22C5300960290 /* AppDelegate.swift */; };
 		20AA7BCE19D22C5300960290 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AA7BCD19D22C5300960290 /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2008A3F91A1FA9030010BD02 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		203568D01A07273400EDD5FA /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		20AA7BC619D22C5300960290 /* Grouped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grouped.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20AA7BCA19D22C5300960290 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				20E299E919F9FE1F00C1A61D /* libz.dylib in Frameworks */,
 				20E299EA19F9FE1F00C1A61D /* MobileCoreServices.framework in Frameworks */,
 				20E299EB19F9FE1F00C1A61D /* QuartzCore.framework in Frameworks */,
+				2008A3FA1A1FA9030010BD02 /* MapKit.framework in Frameworks */,
 				20E299EC19F9FE1F00C1A61D /* Security.framework in Frameworks */,
 				20E299ED19F9FE1F00C1A61D /* StoreKit.framework in Frameworks */,
 				20E299EE19F9FE1F00C1A61D /* SystemConfiguration.framework in Frameworks */,
@@ -187,6 +190,7 @@
 		20DA0F831A071F1A00D06ACA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2008A3F91A1FA9030010BD02 /* MapKit.framework */,
 				20E299DB19F9FE1F00C1A61D /* AudioToolbox.framework */,
 				20E299DC19F9FE1F00C1A61D /* CFNetwork.framework */,
 				20E299DD19F9FE1F00C1A61D /* CoreGraphics.framework */,
@@ -252,6 +256,11 @@
 				TargetAttributes = {
 					20AA7BC519D22C5300960290 = {
 						CreatedOnToolsVersion = 6.0;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					20AA7BDA19D22C5300960290 = {
 						CreatedOnToolsVersion = 6.0;
