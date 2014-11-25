@@ -11,6 +11,7 @@ Implementation:
  - Parse: https://www.parse.com/
 
 Latest Commit:
+
 ======================= Progress: Dazzingly Unfinished Product ====================================
 
 When a group decides to work together physically, they'd have to rely on another product instead of ours.
