@@ -12,20 +12,22 @@
 	<dict>
 		<key>4B013F08141230E978A9F61C74F9879DFFF67A03</key>
 		<string>https://github.com/Grouped/Grouped.git</string>
+		<key>5c3cfeea-8c64-c627-2227-ce57b7db7bff</key>
+		<string>https://github.com/Grouped/Grouped</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Grouped.xcodeproj</string>
+	<string>trunk/Grouped.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>4B013F08141230E978A9F61C74F9879DFFF67A03</key>
-		<string>../..</string>
+		<string>../../../../Grouped</string>
+		<key>5c3cfeea-8c64-c627-2227-ce57b7db7bff</key>
+		<string>../../..</string>
 	</dict>
-	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/Grouped/Grouped.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>4B013F08141230E978A9F61C74F9879DFFF67A03</string>
+	<string>5c3cfeea-8c64-c627-2227-ce57b7db7bff</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +37,14 @@
 			<string>4B013F08141230E978A9F61C74F9879DFFF67A03</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Grouped</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5c3cfeea-8c64-c627-2227-ce57b7db7bff</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Grouped2</string>
 		</dict>
 	</array>
 </dict>

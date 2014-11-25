@@ -52,9 +52,10 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 	}
 	func locationManager(manager:CLLocationManager!, didFailWithError error: NSError!) {
 		var alert = UIAlertController(title: "GPS Error", message: "We cannot detect your current location.", preferredStyle: .Alert)
-		var alertDismiss = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+		var alertDismiss = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
 			alert.dismissViewControllerAnimated(true, completion: nil)
 		}
+		alert.addAction(alertDismiss)
 		presentViewController(alert, animated: true, completion: nil)
 	}
 	

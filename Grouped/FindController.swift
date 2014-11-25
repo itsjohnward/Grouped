@@ -30,9 +30,8 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 		
 		if tableData.count > indexPath.row {
 			var name = tableData[indexPath.row]["name"] as String
-			var hostName = tableData[indexPath.row]["hostUser"] as String
 			var subject = tableData[indexPath.row]["subject"] as String
-			cell.loadItem(name, hostName: hostName, subject: subject, time: tableData[indexPath.row]["time"] as NSDate,
+			cell.loadItem(name, subject: subject, time: tableData[indexPath.row]["time"] as NSDate,
 				coordinates: tableData[indexPath.row]["place"] as PFGeoPoint, homeGeo: geoLoc?)
 		}
 		
@@ -65,9 +64,10 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 	}
 	func locationManager(manager:CLLocationManager!, didFailWithError error: NSError!) {
 		var alert = UIAlertController(title: "GPS Error", message: "We cannot detect your current location.", preferredStyle: .Alert)
-		var alertDismiss = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+		var alertDismiss = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
 			alert.dismissViewControllerAnimated(true, completion: nil)
 		}
+		alert.addAction(alertDismiss)
 		presentViewController(alert, animated: true, completion: nil)
 	}
 	

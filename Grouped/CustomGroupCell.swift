@@ -14,9 +14,7 @@ import CoreLocation
 class CustomGroupCell: UITableViewCell {
 	
 	@IBOutlet weak var groupName: UILabel!
-	//@IBOutlet weak var hostName: UILabel!
 	@IBOutlet weak var subjectLabel: UILabel!
-	@IBOutlet weak var distanceLabel: UILabel!
 	@IBOutlet weak var distanceAmountLabel: UILabel!
 	@IBOutlet weak var timeLabel: UIView!//Don't use; leave it alone; references to the View itself
 	@IBOutlet weak var timeLabel2: UILabel!
@@ -33,9 +31,8 @@ class CustomGroupCell: UITableViewCell {
 	}
 	
 	
-	func loadItem(groupName: String, hostName: String, subject: String, time: NSDate, coordinates: PFGeoPoint, homeGeo: PFGeoPoint?) {
+	func loadItem(groupName: String, subject: String, time: NSDate, coordinates: PFGeoPoint, homeGeo: PFGeoPoint?) {
 		self.groupName.text = groupName
-		//self.hostName.text = hostName
 		subjectLabel.text = subject
 		
 		var diffTime = time.timeIntervalSinceNow
@@ -62,7 +59,6 @@ class CustomGroupCell: UITableViewCell {
 			distanceAmountLabel.text = "\(distance) Mi"
             
 		} else {
-			distanceLabel.hidden = true
 			distanceAmountLabel.hidden = true
 		}
 	}
