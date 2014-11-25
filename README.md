@@ -28,11 +28,8 @@ When a user joins a group, he/she is moved to a screen with no info and a button
   - It also randomly moves from the origin location, even from a completely stagnant laptop; this seems like a definite fault in the GPS accuracy system.
 
 === The Need-to-dos: ========================
- - The 'Post' table needs to be finished. I'm not sure what this is, but it has been here since I started from weeks ago.
- - Ergo, the 'NewPost' controller needs completion along side the 'Post' table. Example code is everywhere.
- - Look up solutions for network location fix.
- - Logo for launch screen and login screen (to pretty up)
- - Change the copyright info in the launch screen. It's been (C)Jonathan's for awhile.
+ - The 'Post' table needs to be finished.
+ - Ergo, the 'NewPost' controller needs completion along side the 'Post' table.
 
 === The Can-to-dos: ========================
  - Profile pictures: This will require searching the directory of the device. And putting files into parse to share.
