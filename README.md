@@ -16,6 +16,12 @@ Implementation:
  - Tethr: http://www.invisionapp.com/tethr
 
 Latest Commit:
+======================= Progress: Dazzingly Unfinished Product ====================================
+
+When a group decides to work together physically, they'd have to rely on another product instead of ours.
+After installing our product, the user starts off by registering. This way we'll know he/she is a real user because they're providing us with their email and school affliation.
+Our product shows groups someone had created; providing the geolocation of the user when he/she created it and fields the host user would fill out randomly, like the group name, description of the group, and the subject the group will focus on.
+When a user joins a group, he/she is moved to a screen with no info and a button linking to an empty page. He/she can choose to leave the group, or just logout.
 
 ======================= Progress: Most Network & GUI Finished ======================= Kevin Zeng ==
  - Working so far alone has demotivated me for this whole week, made no comments in code.
