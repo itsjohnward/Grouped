@@ -86,6 +86,7 @@
                     <connections>
                         <outlet property="passwordField" destination="JAc-H5-l1T" id="BlV-vE-sLp"/>
                         <outlet property="usernameField" destination="jKL-D7-C6o" id="Fqk-1Y-1mM"/>
+                        <segue destination="rXi-sC-fqL" kind="show" identifier="GroupFindSegue" id="FzO-Um-wOO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -860,8 +861,8 @@
         <image name="grouped_bigger_logo.png" width="1014" height="271"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dB5-YV-ymw"/>
         <segue reference="5Xg-Hm-uOZ"/>
+        <segue reference="FzO-Um-wOO"/>
         <segue reference="HJQ-BV-f0d"/>
     </inferredMetricsTieBreakers>
 </document>

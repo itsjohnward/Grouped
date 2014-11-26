@@ -71,6 +71,10 @@ class SignUpViewController: UIViewController {
 			}
 			else {
 				var alert = UIAlertController(title: "Registering Error", message: "Invalid email (Probably)", preferredStyle: .Alert)
+				var alertDismiss = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+					alert.dismissViewControllerAnimated(true, completion: nil)
+				}
+				alert.addAction(alertDismiss)
 				self.presentViewController(alert, animated: true, completion: nil)}
 		}
 	}
