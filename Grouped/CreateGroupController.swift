@@ -13,7 +13,7 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 	@IBOutlet weak var groupNameField: UITextField!
 	@IBOutlet weak var timeStampSwitch: UISegmentedControl!
 	@IBOutlet weak var timeStampLabel: UITextField!
-	@IBOutlet weak var subjectSwitch: UISegmentedControl!
+	@IBOutlet weak var subjectPicker: UIPickerView!
 	@IBOutlet weak var placeSwitch: UISegmentedControl!
 	@IBOutlet weak var placeLabel: UITextField!
 	@IBOutlet weak var descriptionField: UITextView!
@@ -64,7 +64,7 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 		group["name"] = groupNameField.text
 		group["hostUser"] = user!.username
 		group["time"] = NSDate()
-		group["subject"] = subjectSwitch.titleForSegmentAtIndex(subjectSwitch.selectedSegmentIndex)
+		group["subject"] = subjectPicker.selectedRowInComponent(0)
 		
 		group["place"] = geoLoc
 		group["description"] = descriptionField.text
