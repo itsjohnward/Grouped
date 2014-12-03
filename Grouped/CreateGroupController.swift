@@ -13,7 +13,6 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 	@IBOutlet weak var groupNameField: UITextField!
 	@IBOutlet weak var timeStampSwitch: UISegmentedControl!
 	@IBOutlet weak var timeStampLabel: UITextField!
-	@IBOutlet weak var subjectPicker: UIPickerView!
 	@IBOutlet weak var placeSwitch: UISegmentedControl!
 	@IBOutlet weak var placeLabel: UITextField!
 	@IBOutlet weak var descriptionField: UITextView!
@@ -57,6 +56,11 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 		}
 		alert.addAction(alertDismiss)
 		presentViewController(alert, animated: true, completion: nil)
+	}
+	
+	@IBOutlet weak var subjectPicker: UIPickerView!
+	@IBAction func editSubject(sender: AnyObject) {
+		
 	}
 	
 	@IBAction func createGroup(sender: AnyObject) {

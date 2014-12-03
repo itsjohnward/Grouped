@@ -81,6 +81,26 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
 	
+	@IBOutlet weak var settingsView: UIView!
+	@IBOutlet weak var createGroupButton: UIButton!
+	@IBOutlet weak var sortByLabel: UILabel!
+	@IBOutlet weak var segmentSortOption: UISegmentedControl!
+	@IBAction func toggleBar(sender: AnyObject) {
+		var sFrame = settingsView.frame
+		if sFrame.size.height == 0 {
+			sFrame.size.height = 80
+		}
+		else {
+			sFrame.size.height = 0
+		}
+		settingsView.frame = sFrame
+		createGroupButton.hidden = !createGroupButton.hidden
+		sortByLabel.hidden = !sortByLabel.hidden
+		segmentSortOption.hidden = !segmentSortOption.hidden
+	}
+	@IBAction func sortTable(sender: UISegmentedControl) {
+	}
+	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 		if segue.identifier == "CreateGroupSegue" {
 			var cgc:CreateGroupController = segue.destinationViewController as CreateGroupController
