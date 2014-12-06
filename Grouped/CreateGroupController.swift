@@ -22,6 +22,7 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 	var geoLoc:PFGeoPoint?
 	var user:User?
 	var group:Group?
+	var locationAvailable = false
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -35,11 +36,10 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 		locationManager.requestWhenInUseAuthorization()
 		
 		locationManager.startUpdatingLocation()
-		
-		
 	}
 	
 	func locationManager(manager:CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+		locationAvailable = true
 		geoLoc = PFGeoPoint(location: locations[0] as CLLocation)
 		var geocoder = CLGeocoder()
 		geocoder.reverseGeocodeLocation(locations[0] as CLLocation, completionHandler: { (placemark, error) -> Void in
@@ -48,10 +48,12 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 	}
 	
 	func locationManager(manager:CLLocationManager!, didFailWithError error: NSError!) {
-		var alert = UIAlertController(title: "GPS Error", message: "We cannot detect your current location.", preferredStyle: .Alert)
-		var alertDismiss = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
-			alert.dismissViewControllerAnimated(true, completion: nil)
-		}
+		var alert = UIAlertController(title: "GPS Error", message: "We cannot detect your current location.",
+			preferredStyle: .Alert)
+		var alertDismiss = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Cancel) {
+			(UIAlertAction) -> Void in
+				alert.dismissViewControllerAnimated(true, completion: nil)
+			}
 		alert.addAction(alertDismiss)
 		presentViewController(alert, animated: true, completion: nil)
 	}
@@ -62,15 +64,23 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 	}
 	
 	@IBAction func createGroup(sender: AnyObject) {
-		var group = PFObject(className:"Group")
-		group["name"] = groupNameField.text
-		group["hostUser"] = user!.username
-		group["time"] = NSDate()
-		group["subject"] = subjectPicker.selectedRowInComponent(0)
+		if !locationAvailable {
+			println("GPS isn't ready yet")
+			return
+		}
 		
-		group["place"] = geoLoc
-		group["description"] = descriptionField.text
-		if group.save() {
+		var groupOn = PFObject(className:"Group")
+		groupOn["name"] = groupNameField.text
+		groupOn["hostUser"] = user!.username
+		groupOn["time"] = NSDate()
+		groupOn["subject"] = "A++ \(subjectPicker.selectedRowInComponent(0))"
+		
+		groupOn["place"] = geoLoc
+		groupOn["description"] = descriptionField.text
+		group = Group(name: groupNameField.text, course: "\(subjectPicker.selectedRowInComponent(0))",
+			location: geoLoc!, description: descriptionField.text, time: NSDate())
+		
+		if groupOn.save() {
 			self.performSegueWithIdentifier("CreateGroupFeedSegue", sender: self)
 		}
 	}
@@ -81,8 +91,9 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 		if segue.identifier == "CreateGroupFeedSegue" {
-			var cgc:CreateGroupController = segue.destinationViewController as CreateGroupController
-			cgc.user = user
+			var fc:FeedController = segue.destinationViewController as FeedController
+			fc.user = user
+			fc.navigationItem.title = group?.name
 		}
 		
 	}

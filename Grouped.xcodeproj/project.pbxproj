@@ -31,6 +31,7 @@
 		20E299ED19F9FE1F00C1A61D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E319F9FE1F00C1A61D /* StoreKit.framework */; };
 		20E299EE19F9FE1F00C1A61D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E419F9FE1F00C1A61D /* SystemConfiguration.framework */; };
 		522331D81A22F5F50071FF2B /* grouped_bigger_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 522331D71A22F5F50071FF2B /* grouped_bigger_logo.png */; };
+		790C6A1C1A32C36000BFFA25 /* MenuForGroupFinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790C6A1B1A32C36000BFFA25 /* MenuForGroupFinding.swift */; };
 		791EC4631A0803F3006E208E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791EC4621A0803F3006E208E /* User.swift */; };
 		796CBE2A1A0809A300228A4F /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796CBE291A0809A300228A4F /* Group.swift */; };
 		79AB76831A18166300319EE2 /* CustomGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB76821A18166300319EE2 /* CustomGroupCell.swift */; };
@@ -80,6 +81,7 @@
 		20E299E319F9FE1F00C1A61D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		20E299E419F9FE1F00C1A61D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		522331D71A22F5F50071FF2B /* grouped_bigger_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grouped_bigger_logo.png; sourceTree = "<group>"; };
+		790C6A1B1A32C36000BFFA25 /* MenuForGroupFinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuForGroupFinding.swift; sourceTree = "<group>"; };
 		791EC4621A0803F3006E208E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		796CBE291A0809A300228A4F /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		79AB76821A18166300319EE2 /* CustomGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGroupCell.swift; sourceTree = "<group>"; };
@@ -151,12 +153,13 @@
 				203568D01A07273400EDD5FA /* SignUpViewController.swift */,
 				79F7640C1A180B42009D0283 /* FindController.swift */,
 				79AB76821A18166300319EE2 /* CustomGroupCell.swift */,
+				790C6A1B1A32C36000BFFA25 /* MenuForGroupFinding.swift */,
+				79F1D4AC1A1905E30011D5CF /* CreateGroupController.swift */,
 				79F1D4AE1A1997400011D5CF /* JoinGroupController.swift */,
 				20B9504119DB6253003BA007 /* FeedController.swift */,
 				20B9503F19DB6160003BA007 /* CustomCell.swift */,
 				20B9504319DB6AD5003BA007 /* ProfileController.swift */,
 				20B9504519DB6E23003BA007 /* NewPostController.swift */,
-				79F1D4AC1A1905E30011D5CF /* CreateGroupController.swift */,
 				791EC4621A0803F3006E208E /* User.swift */,
 				796CBE291A0809A300228A4F /* Group.swift */,
 				20AA7BC919D22C5300960290 /* Supporting Files */,
@@ -259,6 +262,7 @@
 				TargetAttributes = {
 					20AA7BC519D22C5300960290 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 6QN349HHUB;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -320,6 +324,7 @@
 				796CBE2A1A0809A300228A4F /* Group.swift in Sources */,
 				20B9504419DB6AD5003BA007 /* ProfileController.swift in Sources */,
 				203568D11A07273400EDD5FA /* SignUpViewController.swift in Sources */,
+				790C6A1C1A32C36000BFFA25 /* MenuForGroupFinding.swift in Sources */,
 				20AA7BCE19D22C5300960290 /* ViewController.swift in Sources */,
 				20B9504619DB6E23003BA007 /* NewPostController.swift in Sources */,
 				791EC4631A0803F3006E208E /* User.swift in Sources */,
@@ -455,6 +460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -472,6 +478,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -25,6 +25,7 @@ class JoinGroupController: UIViewController {
 		// Do any additional setup after loading the view.
 		titleLabel.title = group?.name
 		subjectLabel.text = group?.course
+		hostLabel.text = group?.host
 		
 		var geocoder = CLGeocoder()
 		var lat = group?.location.latitude
@@ -46,6 +47,7 @@ class JoinGroupController: UIViewController {
 		if segue.identifier == "FeedGroupSegue" {
 			var fc:FeedController = segue.destinationViewController as FeedController
 			fc.user = user
+			fc.navigationItem.title = group?.name
 		}
 	}
 }

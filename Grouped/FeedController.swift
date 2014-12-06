@@ -35,7 +35,24 @@ class FeedController:  UIViewController, UITableViewDelegate, UITableViewDataSou
 		
 		//Load messages?
     }
-    
+	
+	@IBAction func leaveGroup(sender: AnyObject) {
+		var naviViews = self.navigationController!.viewControllers
+		for var i = naviViews.count - 1; i > 0; --i {
+			if (naviViews[i] as UIViewController).title == "Group Finder" {
+				navigationController!.popToViewController(naviViews[i] as UIViewController, animated: true)
+			}}
+	}
+	
+	func backViewController() -> UIViewController? {
+		var naviViews = self.navigationController!.viewControllers
+		for var i = naviViews.count - 1; i > 0; --i {
+			if (naviViews[i] as NSObject == self) {
+				return (naviViews[i - 1] as UIViewController)
+			}}
+		return nil
+	}
+	
     required init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)

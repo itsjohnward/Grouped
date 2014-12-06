@@ -86,18 +86,8 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 	@IBOutlet weak var createGroupButton: UIButton!
 	@IBOutlet weak var sortByLabel: UILabel!
 	@IBOutlet weak var segmentSortOption: UISegmentedControl!
-	@IBAction func toggleBar(sender: AnyObject) {
-		var sFrame = settingsView.frame
-		if sFrame.size.height == 0 {
-			sFrame.size.height = 80
-		}
-		else {
-			sFrame.size.height = 0
-		}
-		settingsView.frame = sFrame
-		createGroupButton.hidden = !createGroupButton.hidden
-		sortByLabel.hidden = createGroupButton.hidden
-		segmentSortOption.hidden = createGroupButton.hidden
+	@IBAction func logout(sender: AnyObject) {
+		navigationController?.popToRootViewControllerAnimated(true)
 	}
 	@IBAction func sortTable(sender: UISegmentedControl) {
 	}
@@ -111,7 +101,7 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 			jgc.user = user
 			
 			var idx = table.indexPathForSelectedRow()!.row
-			jgc.group = Group(name: tableData[idx]["name"] as String,
+			jgc.group = Group(name: tableData[idx]["name"] as String, host: tableData[idx]["hostUser"] as String,
 				course: tableData[idx]["subject"] as String, location: tableData[idx]["place"] as PFGeoPoint,
 				description: tableData[idx]["description"] as String, time: tableData[idx]["time"] as NSDate)
 		}

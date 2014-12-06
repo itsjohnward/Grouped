@@ -84,7 +84,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="css-qR-Zgz"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="passwordField" destination="JAc-H5-l1T" id="BlV-vE-sLp"/>
                         <outlet property="usernameField" destination="jKL-D7-C6o" id="Fqk-1Y-1mM"/>
@@ -95,79 +95,96 @@
             </objects>
             <point key="canvasLocation" x="509" y="391"/>
         </scene>
+        <!--Menu For Group FInding-->
+        <scene sceneID="Xdx-sz-SMy">
+            <objects>
+                <viewController title="Menu For Group FInding" id="NQ6-KE-tPI" customClass="MenuForGroupFinding" customModule="Grouped" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oBd-Lp-thx"/>
+                        <viewControllerLayoutGuide type="bottom" id="eSB-Bl-hnc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ASG-ek-aah">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n26-tK-R2Q">
+                                <rect key="frame" x="24" y="290" width="62" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OHR-th-aql">
+                                <rect key="frame" x="94" y="286" width="97" height="29"/>
+                                <segments>
+                                    <segment title="Time"/>
+                                    <segment title="Place"/>
+                                </segments>
+                                <connections>
+                                    <action selector="sortTable:" destination="rXi-sC-fqL" eventType="valueChanged" id="7aX-6O-iXQ"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpq-SI-O9R">
+                                <rect key="frame" x="24" y="228" width="93" height="30"/>
+                                <state key="normal" title="Create Group">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createGroup:" destination="NQ6-KE-tPI" eventType="touchUpInside" id="s5r-kZ-OWG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="n26-tK-R2Q" secondAttribute="centerY" id="13P-WW-vPa"/>
+                            <constraint firstItem="OHR-th-aql" firstAttribute="centerY" secondItem="n26-tK-R2Q" secondAttribute="centerY" id="2mr-w1-sP3"/>
+                            <constraint firstItem="n26-tK-R2Q" firstAttribute="top" secondItem="qpq-SI-O9R" secondAttribute="bottom" constant="32" id="4vv-b1-L4d"/>
+                            <constraint firstItem="qpq-SI-O9R" firstAttribute="leading" secondItem="ASG-ek-aah" secondAttribute="leadingMargin" constant="8" id="NdL-Cg-mJG"/>
+                            <constraint firstItem="OHR-th-aql" firstAttribute="leading" secondItem="n26-tK-R2Q" secondAttribute="trailing" constant="8" id="PNV-El-999"/>
+                            <constraint firstItem="n26-tK-R2Q" firstAttribute="leading" secondItem="ASG-ek-aah" secondAttribute="leadingMargin" constant="8" id="yKc-Ie-vcC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="HEP-bw-iml"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o0N-cf-K52" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="-72"/>
+        </scene>
         <!--Group Finder-->
         <scene sceneID="gqo-Z7-Ft6">
             <objects>
-                <tableViewController storyboardIdentifier="FindController" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rXi-sC-fqL" customClass="FindController" customModule="Grouped" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="top" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="22" sectionFooterHeight="22" id="0Ua-12-1OV">
+                <tableViewController storyboardIdentifier="FindController" title="Group Finder" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rXi-sC-fqL" customClass="FindController" customModule="Grouped" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="top" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="0Ua-12-1OV">
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="uzg-KR-THY">
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpq-SI-O9R">
-                                    <rect key="frame" x="499" y="-15" width="93" height="30"/>
-                                    <state key="normal" title="Create Group">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <segue destination="yxa-8O-PKF" kind="show" identifier="CreateGroupSegue" id="w3V-fG-JSO"/>
-                                    </connections>
-                                </button>
-                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n26-tK-R2Q">
-                                    <rect key="frame" x="0.0" y="-11" width="62" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OHR-th-aql">
-                                    <rect key="frame" x="70" y="-14" width="97" height="29"/>
-                                    <segments>
-                                        <segment title="Time"/>
-                                        <segment title="Place"/>
-                                    </segments>
-                                    <connections>
-                                        <action selector="sortTable:" destination="rXi-sC-fqL" eventType="valueChanged" id="7aX-6O-iXQ"/>
-                                    </connections>
-                                </segmentedControl>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="OHR-th-aql" firstAttribute="leading" secondItem="n26-tK-R2Q" secondAttribute="trailing" constant="8" id="5Mr-Ct-8gY"/>
-                                <constraint firstItem="n26-tK-R2Q" firstAttribute="centerY" secondItem="OHR-th-aql" secondAttribute="centerY" id="85p-6o-YZF"/>
-                                <constraint firstAttribute="trailing" secondItem="qpq-SI-O9R" secondAttribute="trailing" constant="8" id="BCL-oX-Vqb"/>
-                                <constraint firstItem="n26-tK-R2Q" firstAttribute="leading" secondItem="uzg-KR-THY" secondAttribute="leading" id="QZj-4K-dxu"/>
-                                <constraint firstAttribute="centerY" secondItem="OHR-th-aql" secondAttribute="centerY" id="oLI-jD-zU1"/>
-                                <constraint firstItem="n26-tK-R2Q" firstAttribute="centerY" secondItem="qpq-SI-O9R" secondAttribute="centerY" id="xzV-I9-dat"/>
-                            </constraints>
-                        </view>
+                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="L5e-G6-9Nd" customClass="CustomGroupCell" customModule="Grouped" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="L5e-G6-9Nd" customClass="CustomGroupCell" customModule="Grouped" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L5e-G6-9Nd" id="EdT-6c-Egl">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0FQ-aE-hra">
-                                            <rect key="frame" x="8" y="8" width="288" height="38"/>
+                                            <rect key="frame" x="8" y="8" width="288" height="28"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ne-xg-LMb">
-                                            <rect key="frame" x="8" y="54" width="288" height="37"/>
+                                            <rect key="frame" x="8" y="44" width="288" height="27"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wG6-91-mEi">
-                                            <rect key="frame" x="304" y="8" width="288" height="38"/>
+                                            <rect key="frame" x="304" y="8" width="288" height="28"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEe-bQ-vza">
-                                            <rect key="frame" x="304" y="54" width="288" height="37"/>
+                                            <rect key="frame" x="304" y="44" width="288" height="27"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -231,22 +248,20 @@
                     <navigationItem key="navigationItem" title="Group Finder" id="tnL-b7-HNn">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="ZIv-lQ-Kwe">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" identifier="LogBackOut" id="5Xg-Hm-uOZ"/>
+                                <action selector="logout:" destination="rXi-sC-fqL" id="Z1B-zC-rlN"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="fs8-MV-Uod">
+                        <barButtonItem key="rightBarButtonItem" title="Menu" id="fs8-MV-Uod">
                             <connections>
-                                <action selector="toggleBar:" destination="rXi-sC-fqL" id="9Hm-nK-wpJ"/>
+                                <segue destination="NQ6-KE-tPI" kind="show" identifier="findMenu" id="yjD-F0-Xwz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="createGroupButton" destination="qpq-SI-O9R" id="5gp-x8-qjq"/>
                         <outlet property="segmentSortOption" destination="OHR-th-aql" id="be0-mg-EFP"/>
-                        <outlet property="settingsView" destination="uzg-KR-THY" id="3MW-X8-G5B"/>
-                        <outlet property="sortByLabel" destination="n26-tK-R2Q" id="dtg-7Q-atk"/>
                         <outlet property="table" destination="0Ua-12-1OV" id="7gX-bb-gdM"/>
+                        <segue destination="yxa-8O-PKF" kind="show" identifier="CreateGroupSegue" id="ggm-9o-FZ6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTn-bY-q2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -262,7 +277,7 @@
                         <viewControllerLayoutGuide type="bottom" id="H9v-b8-Px3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0eJ-zR-sQN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="STQ-Kd-9cG">
@@ -680,7 +695,7 @@
                     <navigationItem key="navigationItem" title="Group Name" id="Dah-q7-bfM">
                         <barButtonItem key="leftBarButtonItem" title="Leave Group" id="e7w-9A-hNy">
                             <connections>
-                                <segue destination="rXi-sC-fqL" kind="show" id="W87-ug-yev"/>
+                                <action selector="leaveGroup:" destination="Vdp-Af-BSK" id="Oxh-Dx-ieP"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Post" id="aiY-A3-ng7">
@@ -689,6 +704,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="2se-ax-rtR" id="1w6-GF-vn7"/>
@@ -972,7 +988,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FzO-Um-wOO"/>
-        <segue reference="5Xg-Hm-uOZ"/>
         <segue reference="HJQ-BV-f0d"/>
     </inferredMetricsTieBreakers>
 </document>
