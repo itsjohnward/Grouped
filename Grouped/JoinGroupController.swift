@@ -18,17 +18,23 @@ class JoinGroupController: UIViewController {
 	@IBOutlet weak var descriptionLabel: UITextView!
 	
 	var user: User?
-	var strings = [String]()
+	var group: Group?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
-		titleLabel.title = strings[0]
-		hostLabel.text = strings[1]
-		subjectLabel.text = strings[2]
-		placeLabel.text = strings[3]
-		timeLabel.text = strings[4]
-		descriptionLabel.text = strings[5]
+		titleLabel.title = group?.name
+		subjectLabel.text = group?.course
+		
+		var geocoder = CLGeocoder()
+		var lat = group?.location.latitude
+		var lon = group?.location.longitude
+		var loc = CLLocation(latitude: lat!, longitude: lon!)
+		geocoder.reverseGeocodeLocation(loc, completionHandler: { (placemark, error) -> Void in
+			self.placeLabel.text = (placemark[0] as CLPlacemark).name
+		})
+		timeLabel.text = group?.time.timeIntervalSinceNow.description
+		descriptionLabel.text = group?.group_description
 	}
 	
 	override func didReceiveMemoryWarning() {

@@ -32,23 +32,21 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		
-		locationManager.requestAlwaysAuthorization()
 		locationManager.requestWhenInUseAuthorization()
 		
 		locationManager.startUpdatingLocation()
 		
-		geoLoc = PFGeoPoint(location: locationManager.location)
-		if geoLoc != nil {
-			placeLabel.text = "\(geoLoc!.latitude), \(geoLoc!.longitude)"
-		}
-	}
-	
-	@IBAction func updateLocation(sender: UISegmentedControl) {
+		
 	}
 	
 	func locationManager(manager:CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-		//locationManager.stopUpdatingLocation()
+		geoLoc = PFGeoPoint(location: locations[0] as CLLocation)
+		var geocoder = CLGeocoder()
+		geocoder.reverseGeocodeLocation(locations[0] as CLLocation, completionHandler: { (placemark, error) -> Void in
+			self.placeLabel.text = (placemark[0] as CLPlacemark).name
+		})
 	}
+	
 	func locationManager(manager:CLLocationManager!, didFailWithError error: NSError!) {
 		var alert = UIAlertController(title: "GPS Error", message: "We cannot detect your current location.", preferredStyle: .Alert)
 		var alertDismiss = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in

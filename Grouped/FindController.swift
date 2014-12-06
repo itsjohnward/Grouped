@@ -49,7 +49,6 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		
-		locationManager.requestAlwaysAuthorization()
 		locationManager.requestWhenInUseAuthorization()
 		
 		locationManager.startUpdatingLocation()
@@ -60,11 +59,13 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 	}
 	
 	func locationManager(manager:CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-		//locationManager.stopUpdatingLocation()
+		//This function updates the location
+		geoLoc = PFGeoPoint(location: locations[0] as CLLocation)
 	}
 	func locationManager(manager:CLLocationManager!, didFailWithError error: NSError!) {
-		var alert = UIAlertController(title: "GPS Error", message: "We cannot detect your current location.", preferredStyle: .Alert)
-		var alertDismiss = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+		var alert = UIAlertController(title: "GPS Error", message: "We cannot detect your current location.",
+			preferredStyle: .Alert)
+		var alertDismiss = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
 			alert.dismissViewControllerAnimated(true, completion: nil)
 		}
 		alert.addAction(alertDismiss)
@@ -95,8 +96,8 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 		}
 		settingsView.frame = sFrame
 		createGroupButton.hidden = !createGroupButton.hidden
-		sortByLabel.hidden = !sortByLabel.hidden
-		segmentSortOption.hidden = !segmentSortOption.hidden
+		sortByLabel.hidden = createGroupButton.hidden
+		segmentSortOption.hidden = createGroupButton.hidden
 	}
 	@IBAction func sortTable(sender: UISegmentedControl) {
 	}
@@ -110,18 +111,9 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 			jgc.user = user
 			
 			var idx = table.indexPathForSelectedRow()!.row
-			var loc = tableData[idx]["place"] as PFGeoPoint
-			var time = (tableData[idx]["time"] as NSDate).timeIntervalSinceNow
-			var timeString = "\(time) seconds from now"
-			if time < 0 {
-				timeString = "Ongoing"
-			}
-			jgc.strings.append(tableData[idx]["name"] as String)
-			jgc.strings.append(tableData[idx]["hostUser"] as String)
-			jgc.strings.append(tableData[idx]["subject"] as String)
-			jgc.strings.append("\(loc.latitude), \(loc.longitude)")
-			jgc.strings.append(timeString)
-			jgc.strings.append(tableData[idx]["description"] as String)
+			jgc.group = Group(name: tableData[idx]["name"] as String,
+				course: tableData[idx]["subject"] as String, location: tableData[idx]["place"] as PFGeoPoint,
+				description: tableData[idx]["description"] as String, time: tableData[idx]["time"] as NSDate)
 		}
     }
 }
