@@ -86,9 +86,13 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 	@IBOutlet weak var createGroupButton: UIButton!
 	@IBOutlet weak var sortByLabel: UILabel!
 	@IBOutlet weak var segmentSortOption: UISegmentedControl!
+	
+	/*
 	@IBAction func logout(sender: AnyObject) {
 		navigationController?.popToRootViewControllerAnimated(true)
 	}
+	*/
+	
 	@IBAction func sortTable(sender: UISegmentedControl) {
 	}
 	
@@ -96,7 +100,8 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 		if segue.identifier == "CreateGroupSegue" {
 			var cgc:CreateGroupController = segue.destinationViewController as CreateGroupController
 			cgc.user = user
-		} else if segue.identifier == "ViewGroupSegue" {
+		}
+		else if segue.identifier == "ViewGroupSegue" {
 			var jgc:JoinGroupController = segue.destinationViewController as JoinGroupController
 			jgc.user = user
 			
@@ -104,6 +109,10 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 			jgc.group = Group(name: tableData[idx]["name"] as String, host: tableData[idx]["hostUser"] as String,
 				course: tableData[idx]["subject"] as String, location: tableData[idx]["place"] as PFGeoPoint,
 				description: tableData[idx]["description"] as String, time: tableData[idx]["time"] as NSDate)
+		}
+		else if segue.identifier == "ProfileController" {
+			var pc:ProfileController = segue.destinationViewController as ProfileController
+			pc.user = user
 		}
     }
 }

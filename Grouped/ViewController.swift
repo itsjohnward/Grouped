@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 	
 	@IBOutlet weak var usernameField: UITextField!
 	@IBOutlet weak var passwordField: UITextField!
-    
+	var user : User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         PFUser.logInWithUsernameInBackground(usernameField.text, password: passwordField.text, { (PFUser user, NSError error) -> Void in
             if user != nil {
                 println("Sign In Successful!")
+				self.user = user
                 self.performSegueWithIdentifier("GroupFindSegue", sender: self)
             }
             else {println("Sign In Failed!")}
@@ -55,13 +56,11 @@ class ViewController: UIViewController {
 		}
 		else if segue.identifier == "GroupFindSegue" {
 			var fc:FindController = segue.destinationViewController as FindController
-			var query = PFQuery(className: "_User")
-			query.whereKey("username", equalTo: usernameField.text)
-			var object = query.findObjects()[0] as PFObject
+			//var query = PFQuery(className: "_User")
+			//query.whereKey("username", equalTo: usernameField.text)
+			//var object = query.findObjects()[0] as PFObject
 			
-			fc.user = User(username: object["username"] as String, password: "",
-				email: object["email"] as String, name: object["name"] as String, age: object["age"] as Int,
-				school: object["school"] as String)
+			fc.user = user
 		}
 	}
 	
