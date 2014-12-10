@@ -27,12 +27,15 @@ class ProfileController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 		
-		println("Username: \(user!.username)")
-		usernameLabel.text = user!.username
-		nicknameLabel.text = user!.name
-		emailLabel.text = user!.email
-		ageLabel.text = "\(user!.age)"
-		schoolLabel.text = user!.school
+		//println("Username: \(user!.username)")
+		
+		var age = PFUser.currentUser()["age"] as Int
+		
+		usernameLabel.text = PFUser.currentUser()["username"] as String
+		nicknameLabel.text = PFUser.currentUser()["name"] as String
+		emailLabel.text = PFUser.currentUser()["email"] as String
+		ageLabel.text = "\(age)"
+		schoolLabel.text = PFUser.currentUser()["school"] as String
 		
     }
     
@@ -64,7 +67,8 @@ class ProfileController: UIViewController {
 		if segue.identifier == "saveChanges" {
 			var fc:FindController = segue.destinationViewController as FindController
 			fc.user = user
-			user!.save()
+			PFUser.currentUser()["name"] = nicknameLabel.text
+			PFUser.currentUser().save()
 		}
     }
 	

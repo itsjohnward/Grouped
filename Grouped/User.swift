@@ -19,6 +19,7 @@ class User : PFUser {
         self.password = password
         self.email = email
     }
+
     
     var name:String
     var age:Int

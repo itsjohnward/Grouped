@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         PFUser.logInWithUsernameInBackground(usernameField.text, password: passwordField.text, { (PFUser user, NSError error) -> Void in
             if user != nil {
                 println("Sign In Successful!")
-				self.user = user
+				//self.user = user
                 self.performSegueWithIdentifier("GroupFindSegue", sender: self)
             }
             else {println("Sign In Failed!")}
