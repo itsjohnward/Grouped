@@ -11,22 +11,23 @@ import Foundation
 class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 	
 	@IBOutlet weak var groupNameField: UITextField!
-	@IBOutlet weak var timeStampSwitch: UISegmentedControl!
-	@IBOutlet weak var timeStampLabel: UITextField!
-	@IBOutlet weak var placeSwitch: UISegmentedControl!
-	@IBOutlet weak var placeLabel: UITextField!
 	@IBOutlet weak var descriptionField: UITextView!
+	@IBOutlet weak var subjectPicker: UIPickerView!
+	@IBOutlet weak var scrollView: UIScrollView!
+	@IBOutlet weak var endDatePicker: UIDatePicker!
+	@IBOutlet weak var mapView: MKMapView!
 	
 	var locationManager = CLLocationManager()
 	var location:CLLocation?
 	var geoLoc:PFGeoPoint?
-	var user:User?
 	var group:Group?
 	var locationAvailable = false
 	
 	override func viewDidLoad() {
+		scrollView.contentSize = CGSizeMake(self.view.frame.width, 1200)
+		
 		super.viewDidLoad()
-		timeStampLabel.text = NSDate().description
+		//timeStampLabel.text = NSDate().description
 		// Do any additional setup after loading the view, typically from a nib.
 		locationManager = CLLocationManager()
 		
@@ -43,7 +44,7 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 		geoLoc = PFGeoPoint(location: locations[0] as CLLocation)
 		var geocoder = CLGeocoder()
 		geocoder.reverseGeocodeLocation(locations[0] as CLLocation, completionHandler: { (placemark, error) -> Void in
-			self.placeLabel.text = (placemark[0] as CLPlacemark).name
+			//self.placeLabel.text = (placemark[0] as CLPlacemark).name
 		})
 	}
 	
@@ -58,11 +59,6 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 		presentViewController(alert, animated: true, completion: nil)
 	}
 	
-	@IBOutlet weak var subjectPicker: UIPickerView!
-	@IBAction func editSubject(sender: AnyObject) {
-		
-	}
-	
 	@IBAction func createGroup(sender: AnyObject) {
 		if !locationAvailable {
 			println("GPS isn't ready yet")
@@ -71,7 +67,7 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 		
 		var groupOn = PFObject(className:"Group")
 		groupOn["name"] = groupNameField.text
-		groupOn["hostUser"] = user!.username
+		groupOn["hostUser"] = PFUser.currentUser().username
 		groupOn["time"] = NSDate()
 		groupOn["subject"] = "A++ \(subjectPicker.selectedRowInComponent(0))"
 		
@@ -92,7 +88,7 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 		if segue.identifier == "CreateGroupFeedSegue" {
 			var fc:FeedController = segue.destinationViewController as FeedController
-			fc.user = user
+			
 			fc.navigationItem.title = group?.name
 		}
 		

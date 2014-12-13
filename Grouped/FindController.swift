@@ -12,7 +12,6 @@ import UIKit
 
 class FindController:  UITableViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
 	
-	var user: User?
     var tableData = [PFObject]()
 	
 	@IBOutlet var table: UITableView!
@@ -99,11 +98,9 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 		if segue.identifier == "CreateGroupSegue" {
 			var cgc:CreateGroupController = segue.destinationViewController as CreateGroupController
-			cgc.user = user
 		}
 		else if segue.identifier == "ViewGroupSegue" {
 			var jgc:JoinGroupController = segue.destinationViewController as JoinGroupController
-			jgc.user = user
 			
 			var idx = table.indexPathForSelectedRow()!.row
 			jgc.group = Group(name: tableData[idx]["name"] as String, host: tableData[idx]["hostUser"] as String,
@@ -112,7 +109,6 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 		}
 		else if segue.identifier == "ProfileController" {
 			var pc:ProfileController = segue.destinationViewController as ProfileController
-			pc.user = user
 		}
     }
 }

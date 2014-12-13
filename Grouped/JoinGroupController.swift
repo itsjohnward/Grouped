@@ -17,7 +17,6 @@ class JoinGroupController: UIViewController {
 	@IBOutlet weak var timeLabel: UITextField!
 	@IBOutlet weak var descriptionLabel: UITextView!
 	
-	var user: User?
 	var group: Group?
 	
 	override func viewDidLoad() {
@@ -46,7 +45,6 @@ class JoinGroupController: UIViewController {
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 		if segue.identifier == "FeedGroupSegue" {
 			var fc:FeedController = segue.destinationViewController as FeedController
-			fc.user = user
 			fc.navigationItem.title = group?.name
 		}
 	}

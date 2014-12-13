@@ -8,19 +8,15 @@
 
 import Foundation
 
-class User : PFUser {
-    init(username:String, password:String, email:String, name:String = "", age:Int = 0, school:String = "") {
-        self.name = name
+class User {
+	init(userInfo:PFUser, name:String = "", age:Int = 0, school:String = "") {
+		self.userInfo = userInfo
+		self.name = name
         self.age = age
         self.school = school
-        
-        super.init()
-        self.username = username
-        self.password = password
-        self.email = email
     }
 
-    
+	var userInfo:PFUser
     var name:String
     var age:Int
     var school:String

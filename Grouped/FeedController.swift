@@ -65,10 +65,8 @@ class FeedController:  UIViewController, UITableViewDelegate, UITableViewDataSou
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 		if segue.identifier == "ProfileSegue" {
 			var pc:ProfileController = segue.destinationViewController as ProfileController
-			pc.user = user
 		} else if segue.identifier == "PostSegue" {
 			var npc:NewPostController = segue.destinationViewController as NewPostController
-			npc.user = user
 		}
 	}
 }

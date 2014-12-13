@@ -10,18 +10,11 @@ import Foundation
 import UIKit
 
 class ProfileController: UIViewController {
-	
-	var user: User?
-
-	
 	@IBOutlet weak var usernameLabel: UITextField!
 	@IBOutlet weak var nicknameLabel: UITextField!
 	@IBOutlet weak var emailLabel: UITextField!
 	@IBOutlet weak var ageLabel: UITextField!
 	@IBOutlet weak var schoolLabel: UITextField!
-	
-	
-	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +38,8 @@ class ProfileController: UIViewController {
     }
 	
 	@IBAction func logout(sender: UIButton) {
+		PFUser.logOut()
+		NSUserDefaults.standardUserDefaults().removeObjectForKey("GroupedUserName")
 		navigationController?.popToRootViewControllerAnimated(true)
 	}
 	
@@ -66,8 +61,11 @@ class ProfileController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 		if segue.identifier == "saveChanges" {
 			var fc:FindController = segue.destinationViewController as FindController
-			fc.user = user
+			PFUser.currentUser()["username"] = usernameLabel.text
 			PFUser.currentUser()["name"] = nicknameLabel.text
+			PFUser.currentUser()["email"] = emailLabel.text
+			PFUser.currentUser()["age"] = ageLabel.text.toInt()
+			PFUser.currentUser()["school"] = schoolLabel.text
 			PFUser.currentUser().save()
 		}
     }
