@@ -103,7 +103,7 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 			var jgc:JoinGroupController = segue.destinationViewController as JoinGroupController
 			
 			var idx = table.indexPathForSelectedRow()!.row
-			jgc.group = Group(name: tableData[idx]["name"] as String, host: tableData[idx]["hostUser"] as String,
+			group = Group(name: tableData[idx]["name"] as String, host: tableData[idx]["hostUser"] as String,
 				course: tableData[idx]["subject"] as String, location: tableData[idx]["place"] as PFGeoPoint,
 				description: tableData[idx]["description"] as String, time: tableData[idx]["time"] as NSDate)
 		}

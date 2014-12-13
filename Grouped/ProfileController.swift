@@ -43,21 +43,6 @@ class ProfileController: UIViewController {
 		navigationController?.popToRootViewControllerAnimated(true)
 	}
 	
-	/*
-    @IBAction func logOff(AnyObject) {
-        //TODO 
-        //Code to complete logOff of Account
-		self.performSegueWithIdentifier("LogoutSegue", sender: self)
-        //self.dismissViewControllerAnimated(true, completion: {});
-    }
-	*/
-	
-	/*
-	@IBAction func leaveGroup(sender: AnyObject) {
-		self.performSegueWithIdentifier("LeaveGroupSegue", sender: self)
-	}
-	*/
-	
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 		if segue.identifier == "saveChanges" {
 			var fc:FindController = segue.destinationViewController as FindController

@@ -12,10 +12,9 @@ import UIKit
 
 class FeedController:  UIViewController, UITableViewDelegate, UITableViewDataSource{
 	
-	var user: User?
     @IBOutlet var tableView: UITableView?
     
-    var tableData = ["HW1 - Code blackjack","HW2 - GUI blackjack","HW3 - elegante blackjack"]
+    var tableData = [PFObject]()
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -25,12 +24,19 @@ class FeedController:  UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell:CustomCell = self.tableView?.dequeueReusableCellWithIdentifier("Cell") as CustomCell
-        cell.loadItem(tableData[indexPath.row], subject: tableData[indexPath.row])
+        cell.loadItem(tableData[indexPath.row]["user"] as String,
+			subject: tableData[indexPath.row]["message"] as String)
         
         return cell
     }
     
     override func viewDidLoad() {
+		self.navigationItem.title = group?.name
+		
+		var query = PFQuery(className: "Message")
+		query.whereKey("group", equalTo: group?.name)
+		tableData += query.findObjects() as [PFObject]
+		
         super.viewDidLoad()
 		
 		//Load messages?
@@ -53,8 +59,7 @@ class FeedController:  UIViewController, UITableViewDelegate, UITableViewDataSou
 		return nil
 	}
 	
-    required init(coder aDecoder: NSCoder)
-    {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

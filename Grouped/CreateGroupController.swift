@@ -20,7 +20,6 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 	var locationManager = CLLocationManager()
 	var location:CLLocation?
 	var geoLoc:PFGeoPoint?
-	var group:Group?
 	var locationAvailable = false
 	
 	override func viewDidLoad() {
@@ -69,12 +68,19 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 		groupOn["name"] = groupNameField.text
 		groupOn["hostUser"] = PFUser.currentUser().username
 		groupOn["time"] = NSDate()
-		groupOn["subject"] = "A++ \(subjectPicker.selectedRowInComponent(0))"
+		groupOn["endTime"] = endDatePicker.date
+		groupOn["subject"] = subjectPicker.selectedRowInComponent(0).description
 		
 		groupOn["place"] = geoLoc
 		groupOn["description"] = descriptionField.text
-		group = Group(name: groupNameField.text, course: "\(subjectPicker.selectedRowInComponent(0))",
+		group = Group(name: groupNameField.text, course: subjectPicker.selectedRowInComponent(0).description,
 			location: geoLoc!, description: descriptionField.text, time: NSDate())
+		
+		var message = PFObject()
+		message["user"] = PFUser.currentUser().username
+		message["group"] = group?.name
+		message["message"] = "Welcome to \(group?.name)!"
+		message.save()
 		
 		if groupOn.save() {
 			self.performSegueWithIdentifier("CreateGroupFeedSegue", sender: self)
@@ -88,8 +94,6 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 		if segue.identifier == "CreateGroupFeedSegue" {
 			var fc:FeedController = segue.destinationViewController as FeedController
-			
-			fc.navigationItem.title = group?.name
 		}
 		
 	}

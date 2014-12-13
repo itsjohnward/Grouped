@@ -9,8 +9,8 @@
 import UIKit
 
 class NewPostController: UIViewController {
-
-	var user:User?
+	
+	@IBOutlet weak var postField: UITextField!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,28 +22,19 @@ class NewPostController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func cancelPost(AnyObject) {
-        //TODO
-        //Code to complete cancel post
-        self.dismissViewControllerAnimated(true, completion: {});
-    }
-    
+	
     @IBAction func sendPost(AnyObject) {
-        //TODO
-        //Code to complete submit post
-        self.dismissViewControllerAnimated(true, completion: {});
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+        var message = PFObject(className:"Message")
+		message["user"] = PFUser.currentUser().username
+		message["group"] = group?.name
+		message["message"] = postField.text
+		message.save()
+		var naviViews = self.navigationController!.viewControllers
+		for var i = naviViews.count - 1; i > 0; --i {
+			if (naviViews[i] as NSObject == self) {
+				var theFeed = naviViews[i - 1] as FeedController
+				theFeed.tableData.append(message)
+				self.navigationController?.popToViewController(theFeed, animated: true)
+			}}
+	}
 }

@@ -8,15 +8,18 @@
 
 import Foundation
 
+var group:Group?
+
 class Group {
 	init(name:String, host:String = "Unknown", course:String, location:PFGeoPoint,
-		description:String, time:NSDate = NSDate()) {
+		description:String, time:NSDate = NSDate(), endTime:NSDate = NSDate()) {
 		self.name = name
 		self.host = host
 		self.course = course
         self.location = location
         self.group_description = description
-        self.time = time
+		self.time = time
+		self.endTime = endTime
     }
 	
 	var name : String
@@ -24,5 +27,6 @@ class Group {
     var course : String
     var location : PFGeoPoint
     var group_description : String
-    var time : NSDate
+	var time : NSDate
+	var endTime : NSDate
 }
