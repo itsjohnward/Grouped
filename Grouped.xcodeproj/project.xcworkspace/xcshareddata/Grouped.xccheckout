@@ -20,7 +20,7 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>4B013F08141230E978A9F61C74F9879DFFF67A03</key>
-		<string>../../..2</string>
+		<string>../../../../Grouped</string>
 		<key>5c3cfeea-8c64-c627-2227-ce57b7db7bff</key>
 		<string>../../..</string>
 	</dict>
@@ -32,17 +32,17 @@
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
+			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5c3cfeea-8c64-c627-2227-ce57b7db7bff</string>
+			<string>4B013F08141230E978A9F61C74F9879DFFF67A03</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Grouped</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
+			<string>public.vcs.subversion</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>4B013F08141230E978A9F61C74F9879DFFF67A03</string>
+			<string>5c3cfeea-8c64-c627-2227-ce57b7db7bff</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Grouped2</string>
 		</dict>

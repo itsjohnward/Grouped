@@ -39,10 +39,6 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
 		
-		var query = PFQuery(className: "Group")
-		//query.whereKey("username", equalTo: usernameField.text)
-		tableData += query.findObjects() as [PFObject]
-		
 		locationManager = CLLocationManager()
 		
 		locationManager.delegate = self
@@ -53,6 +49,10 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 		locationManager.startUpdatingLocation()
 		
 		geoLoc = PFGeoPoint(location: locationManager.location)
+        
+        var query = PFQuery(className: "Group")
+        query.whereKey("place" , nearGeoPoint:geoLoc, withinMiles:10.0)
+        tableData += query.findObjects() as [PFObject]
 		
 		super.viewDidLoad()
 	}
