@@ -31,7 +31,7 @@ class JoinGroupController: UIViewController {
 		geocoder.reverseGeocodeLocation(loc, completionHandler: { (placemark, error) -> Void in
 			self.placeLabel.text = (placemark[0] as CLPlacemark).name
 		})
-		timeLabel.text = group?.time.timeIntervalSinceNow.description
+		timeLabel.text = group?.time.description
 		descriptionLabel.text = group?.group_description
 	}
 	

@@ -69,6 +69,7 @@ class FindController:  UITableViewController, UITableViewDelegate, UITableViewDa
 		}
 		alert.addAction(alertDismiss)
 		presentViewController(alert, animated: true, completion: nil)
+		println(error)
 	}
 	
     required init(coder aDecoder: NSCoder)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CreateGroupController : UIViewController, CLLocationManagerDelegate {
+class CreateGroupController : UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
 	
 	@IBOutlet weak var groupNameField: UITextField!
 	@IBOutlet weak var descriptionField: UITextView!
@@ -21,6 +21,21 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 	var location:CLLocation?
 	var geoLoc:PFGeoPoint?
 	var locationAvailable = false
+	var listOfSubjects = ["Calculus I & II", "Discrete Math", "Linear Algebra & Ordinary Differential Equations",
+		"Data Analysis", "Mechanics", "Bio Molecular Science", "Chemistry", "Data Structures & Algorithms",
+		"Computer Architecture & Organizations", "Operating Systems", "Intro to STS", "Pyschology"]
+	
+	func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+		return 1
+	}
+	
+	func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+		return listOfSubjects.count
+	}
+	
+	func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+		return listOfSubjects[row]
+	}
 	
 	override func viewDidLoad() {
 		scrollView.contentSize = CGSizeMake(self.view.frame.width, 1200)
@@ -56,6 +71,7 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 			}
 		alert.addAction(alertDismiss)
 		presentViewController(alert, animated: true, completion: nil)
+		println(error)
 	}
 	
 	@IBAction func createGroup(sender: AnyObject) {
@@ -69,17 +85,17 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate {
 		groupOn["hostUser"] = PFUser.currentUser().username
 		groupOn["time"] = NSDate()
 		groupOn["endTime"] = endDatePicker.date
-		groupOn["subject"] = subjectPicker.selectedRowInComponent(0).description
+		groupOn["subject"] = listOfSubjects[subjectPicker.selectedRowInComponent(0)]
 		
 		groupOn["place"] = geoLoc
 		groupOn["description"] = descriptionField.text
 		group = Group(name: groupNameField.text, course: subjectPicker.selectedRowInComponent(0).description,
 			location: geoLoc!, description: descriptionField.text, time: NSDate())
 		
-		var message = PFObject()
+		var message = PFObject(className:"Message")
 		message["user"] = PFUser.currentUser().username
 		message["group"] = group?.name
-		message["message"] = "Welcome to \(group?.name)!"
+		message["message"] = "Welcome to \(group!.name)!"
 		message.save()
 		
 		if groupOn.save() {
