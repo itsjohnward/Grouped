@@ -13,6 +13,8 @@ import UIKit
 class FindController:  UITableViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
 	
     var tableData = [PFObject]()
+    var GroupData = [Group]()
+    var filteredData = [Group]()
 	
 	@IBOutlet var table: UITableView!
 	var locationManager = CLLocationManager()
