@@ -19,6 +19,7 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
 	
     @IBOutlet weak var searchBar: UISearchBar!
 	@IBOutlet var table: UITableView!
+    
 	var locationManager = CLLocationManager()
 	var geoLoc: PFGeoPoint?
 	
@@ -63,10 +64,19 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
 		locationManager.startUpdatingLocation()
         geoLoc = PFGeoPoint(location: locationManager.location)
         
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.addTarget(self, action: Selector("refreshInvoked"), forControlEvents: UIControlEvents.ValueChanged)
+        
         refreshFeed()
 		println("VIEW DID LOAD")
 		super.viewDidLoad()
 	}
+    
+    func refreshInvoked() {
+        refreshFeed()
+        tableView.reloadData()
+        self.refreshControl?.endRefreshing()
+    }
     
     func refreshFeed(){
         
