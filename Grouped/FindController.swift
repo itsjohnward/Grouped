@@ -43,8 +43,9 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
         } else {
             group = GroupData[indexPath.row]
         }
-            
+        
         cell.loadItem(group, homeGeo: geoLoc?)
+        
         if group.course == "Math" { cell.contentView.backgroundColor = UIColor(red:224/255, green:72/255,blue:62/255,alpha:1.0)}
         else if group.course == "Science" { cell.contentView.backgroundColor = UIColor(red:34/255, green:192/255,blue:100/255,alpha:1.0) }
         else if group.course == "Computing" { cell.contentView.backgroundColor = UIColor(red:19/255, green:82/255,blue:226/255,alpha:1.0) }
