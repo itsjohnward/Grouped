@@ -167,11 +167,6 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
         }
     }
 	
-	@IBOutlet weak var settingsView: UIView!
-	@IBOutlet weak var createGroupButton: UIButton!
-	@IBOutlet weak var sortByLabel: UILabel!
-	@IBOutlet weak var segmentSortOption: UISegmentedControl!
-	
 	/*
 	@IBAction func logout(sender: AnyObject) {
 		navigationController?.popToRootViewControllerAnimated(true)
@@ -195,7 +190,7 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("ViewGroupSegue", sender: tableView)
     }
-	
+    
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 		if segue.identifier == "CreateGroupSegue" {
 			var cgc:CreateGroupController = segue.destinationViewController as CreateGroupController
