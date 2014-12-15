@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CreateGroupController : UIViewController, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class CreateGroupController : UITableViewController, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
 	
 	@IBOutlet weak var groupNameField: UITextField!
 	@IBOutlet weak var descriptionField: UITextView!
@@ -38,7 +38,7 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate, UIPic
 	}
 	
 	override func viewDidLoad() {
-		scrollView.contentSize = CGSizeMake(self.view.frame.width, 1200)
+		//scrollView.contentSize = CGSizeMake(self.view.frame.width, 1200)
 		
 		super.viewDidLoad()
 		//timeStampLabel.text = NSDate().description
@@ -105,9 +105,9 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate, UIPic
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-		if segue.identifier == "CreateGroupFeedSegue" {
-			var fc:FeedController = segue.destinationViewController as FeedController
-		}
+		//if segue.identifier == "CreateGroupFeedSegue" {
+		//	var fc:FeedController = segue.destinationViewController as FeedController
+		//}
 		
 	}
 }
