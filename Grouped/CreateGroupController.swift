@@ -44,12 +44,9 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate, UIPic
 		//timeStampLabel.text = NSDate().description
 		// Do any additional setup after loading the view, typically from a nib.
 		locationManager = CLLocationManager()
-		
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
-		
 		locationManager.requestWhenInUseAuthorization()
-		
 		locationManager.startUpdatingLocation()
 	}
 	

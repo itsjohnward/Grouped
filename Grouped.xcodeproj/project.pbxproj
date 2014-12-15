@@ -30,6 +30,7 @@
 		20E299EC19F9FE1F00C1A61D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E219F9FE1F00C1A61D /* Security.framework */; };
 		20E299ED19F9FE1F00C1A61D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E319F9FE1F00C1A61D /* StoreKit.framework */; };
 		20E299EE19F9FE1F00C1A61D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E419F9FE1F00C1A61D /* SystemConfiguration.framework */; };
+		20EFCE961A3F388200354896 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20EFCE941A3F388200354896 /* Main.storyboard */; };
 		522331D81A22F5F50071FF2B /* grouped_bigger_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 522331D71A22F5F50071FF2B /* grouped_bigger_logo.png */; };
 		790C6A1C1A32C36000BFFA25 /* MenuForGroupFinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790C6A1B1A32C36000BFFA25 /* MenuForGroupFinding.swift */; };
 		791EC4631A0803F3006E208E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791EC4621A0803F3006E208E /* User.swift */; };
@@ -37,7 +38,6 @@
 		79AB76831A18166300319EE2 /* CustomGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB76821A18166300319EE2 /* CustomGroupCell.swift */; };
 		79F1D4AD1A1905E30011D5CF /* CreateGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1D4AC1A1905E30011D5CF /* CreateGroupController.swift */; };
 		79F1D4AF1A1997400011D5CF /* JoinGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F1D4AE1A1997400011D5CF /* JoinGroupController.swift */; };
-		79F7640B1A17FD9B009D0283 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79F764091A17FD9B009D0283 /* Main.storyboard */; };
 		79F7640D1A180B42009D0283 /* FindController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F7640C1A180B42009D0283 /* FindController.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +80,7 @@
 		20E299E219F9FE1F00C1A61D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		20E299E319F9FE1F00C1A61D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		20E299E419F9FE1F00C1A61D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		20EFCE951A3F388200354896 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Grouped/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		522331D71A22F5F50071FF2B /* grouped_bigger_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grouped_bigger_logo.png; sourceTree = "<group>"; };
 		790C6A1B1A32C36000BFFA25 /* MenuForGroupFinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuForGroupFinding.swift; sourceTree = "<group>"; };
 		791EC4621A0803F3006E208E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -87,7 +88,6 @@
 		79AB76821A18166300319EE2 /* CustomGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGroupCell.swift; sourceTree = "<group>"; };
 		79F1D4AC1A1905E30011D5CF /* CreateGroupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupController.swift; sourceTree = "<group>"; };
 		79F1D4AE1A1997400011D5CF /* JoinGroupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGroupController.swift; sourceTree = "<group>"; };
-		79F7640A1A17FD9B009D0283 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Grouped/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79F7640C1A180B42009D0283 /* FindController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,7 +148,7 @@
 				20AA7BCB19D22C5300960290 /* AppDelegate.swift */,
 				20AA7BD219D22C5300960290 /* Images.xcassets */,
 				20AA7BD419D22C5300960290 /* LaunchScreen.xib */,
-				79F764091A17FD9B009D0283 /* Main.storyboard */,
+				20EFCE941A3F388200354896 /* Main.storyboard */,
 				20AA7BCD19D22C5300960290 /* ViewController.swift */,
 				203568D01A07273400EDD5FA /* SignUpViewController.swift */,
 				20B9504319DB6AD5003BA007 /* ProfileController.swift */,
@@ -300,9 +300,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				20AA7BD619D22C5300960290 /* LaunchScreen.xib in Resources */,
-				79F7640B1A17FD9B009D0283 /* Main.storyboard in Resources */,
 				20AA7BD319D22C5300960290 /* Images.xcassets in Resources */,
 				522331D81A22F5F50071FF2B /* grouped_bigger_logo.png in Resources */,
+				20EFCE961A3F388200354896 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,10 +364,10 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
-		79F764091A17FD9B009D0283 /* Main.storyboard */ = {
+		20EFCE941A3F388200354896 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				79F7640A1A17FD9B009D0283 /* Base */,
+				20EFCE951A3F388200354896 /* Base */,
 			);
 			name = Main.storyboard;
 			path = ..;
