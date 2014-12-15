@@ -19,6 +19,7 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
 	
     @IBOutlet weak var searchBar: UISearchBar!
 	@IBOutlet var table: UITableView!
+    @IBOutlet weak var filterControl: UISegmentedControl!
     
 	var locationManager = CLLocationManager()
 	var geoLoc: PFGeoPoint?
@@ -35,7 +36,6 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell:CustomGroupCell = self.tableView?.dequeueReusableCellWithIdentifier("Cell") as CustomGroupCell
-		
         var group : Group
         
         if tableView == self.searchDisplayController!.searchResultsTableView {
@@ -43,14 +43,20 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
         } else {
             group = GroupData[indexPath.row]
         }
-    
-        var name = group.name as String
-        var subject = group.course as String
-        var time = group.time as NSDate
-        var loc = group.location as PFGeoPoint
             
-        cell.loadItem(name, subject: subject, time: time, coordinates: loc, homeGeo: geoLoc?)
-		
+        cell.loadItem(group, homeGeo: geoLoc?)
+        if group.course == "Math" { cell.contentView.backgroundColor = UIColor(red:224/255, green:72/255,blue:62/255,alpha:1.0)}
+        else if group.course == "Science" { cell.contentView.backgroundColor = UIColor(red:34/255, green:192/255,blue:100/255,alpha:1.0) }
+        else if group.course == "Computing" { cell.contentView.backgroundColor = UIColor(red:19/255, green:82/255,blue:226/255,alpha:1.0) }
+        
+        //Add Background pics
+        
+        //var imageView = UIImageView(frame: CGRectMake(10, 10, cell.frame.width - 10, cell.frame.height - 10))
+        //let image = UIImage(named: "Albert-Einstein.jpg")
+        //imageView.image = image
+        //cell.backgroundView = UIView()
+        //cell.backgroundView = imageView
+        
         return cell
     }
     
@@ -78,6 +84,23 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
         self.refreshControl?.endRefreshing()
     }
     
+    @IBAction func filterChanged(sender: UISegmentedControl) {
+        
+        switch filterControl.selectedSegmentIndex
+            {
+        case 0:
+            println("Location Sort")
+            GroupData.sort{$0.dist < $1.dist}
+            tableView.reloadData()
+        case 1:
+            println("Subject Sort")
+            GroupData.sort{($0.course.lowercaseString) < ($1.course.lowercaseString)}
+            tableView.reloadData()
+        default:
+            break; 
+        }
+    }
+    
     func refreshFeed(){
         
         tableData = [PFObject]()
@@ -95,9 +118,12 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
             var desc = tableData[i]["description"] as String
             var host = tableData[i]["hostUser"] as String
             var time = tableData[i]["time"] as NSDate
-            
-            GroupData.append(Group(name: name, host: host, course: subject, location: location, description: desc, time: time))
+            var arrGroup = Group(name: name, host: host, course: subject, location: location,
+                description: desc, time: time, homeGeo: geoLoc!)
+            GroupData.append(arrGroup)
         }
+        GroupData.sort{$0.dist < $1.dist}
+        
     }
 	
 	func locationManager(manager:CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -124,12 +150,20 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    var start = 0;
     override func viewDidAppear(animated: Bool) {
         //Refresh data
         println("VIEW DID APPEAR")
         //refreshFeed()
         tableView.reloadData()
+        
+        var nav = self.navigationController?.navigationBar
+        if(start == 0){start = 1;}
+        else {
+          nav?.barTintColor = UIColor(red:247/255, green:247/255,blue:247/255,alpha:1.0)
+          nav?.tintColor = UIColor(red:0.0, green:122/255,blue:255/255,alpha:1.0)
+          nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blackColor()]
+        }
     }
 	
 	@IBOutlet weak var settingsView: UIView!
@@ -170,15 +204,14 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
             
             if sender as UITableView == self.searchDisplayController!.searchResultsTableView{
                var idx = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()!.row
-                group = Group(name: filteredData[idx].name, host: filteredData[idx].host,
-                    course: filteredData[idx].course, location: filteredData[idx].location,
-                    description: filteredData[idx].group_description, time: filteredData[idx].time)
+                group = filteredData[idx]
             }
             else {
                 var idx = table.indexPathForSelectedRow()!.row
-                group = Group(name: GroupData[idx].name, host: GroupData[idx].host,
-                    course: GroupData[idx].course, location: GroupData[idx].location,
-                    description: GroupData[idx].group_description, time: GroupData[idx].time)
+                group = GroupData[idx]
+                    //Group(name: GroupData[idx].name, host: GroupData[idx].host,
+                    //course: GroupData[idx].course, location: GroupData[idx].location,
+                    //description: GroupData[idx].group_description, time: GroupData[idx].time)
             }
 		}
 		else if segue.identifier == "ProfileController" {

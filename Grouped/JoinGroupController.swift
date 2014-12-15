@@ -17,6 +17,7 @@ class JoinGroupController: UIViewController {
 	@IBOutlet weak var timeLabel: UITextField!
 	@IBOutlet weak var descriptionLabel: UITextView!
 	
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
@@ -33,6 +34,16 @@ class JoinGroupController: UIViewController {
 		})
 		timeLabel.text = group?.time.description
 		descriptionLabel.text = group?.group_description
+        
+        var nav = self.navigationController?.navigationBar
+        //nav?.barStyle = UIBarStyle.Black
+        
+        if group?.course == "Math" { nav?.barTintColor = UIColor(red:224/255, green:72/255,blue:62/255,alpha:1.0)}
+        else if group?.course == "Science" { nav?.barTintColor = UIColor(red:34/255, green:192/255,blue:100/255,alpha:1.0) }
+        else if group?.course == "Computing" { nav?.barTintColor = UIColor(red:19/255, green:82/255,blue:226/255,alpha:1.0) }
+
+        nav?.tintColor = UIColor.whiteColor()
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 	}
 	
 	override func didReceiveMemoryWarning() {
