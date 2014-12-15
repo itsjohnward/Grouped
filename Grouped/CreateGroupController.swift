@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CreateGroupController : UITableViewController, CLLocationManagerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class CreateGroupController : UITableViewController, CLLocationManagerDelegate {
 	
 	@IBOutlet weak var groupNameField: UITextField!
 	@IBOutlet weak var descriptionField: UITextView!
@@ -16,25 +16,16 @@ class CreateGroupController : UITableViewController, CLLocationManagerDelegate, 
 	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var endDatePicker: UIDatePicker!
 	@IBOutlet weak var mapView: MKMapView!
-	
+    @IBOutlet weak var subjectLabel: UILabel!
+    
 	var locationManager = CLLocationManager()
 	var location:CLLocation?
 	var geoLoc:PFGeoPoint?
 	var locationAvailable = false
-	var listOfSubjects = ["Calculus I & II", "Discrete Math", "Linear Algebra & Ordinary Differential Equations",
-		"Data Analysis", "Mechanics", "Bio Molecular Science", "Chemistry", "Data Structures & Algorithms",
-		"Computer Architecture & Organizations", "Operating Systems", "Intro to STS", "Pyschology"]
-	
+    var subject = "General Studies"
+		
 	func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
 		return 1
-	}
-	
-	func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-		return listOfSubjects.count
-	}
-	
-	func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-		return listOfSubjects[row]
 	}
 	
 	override func viewDidLoad() {
@@ -82,8 +73,8 @@ class CreateGroupController : UITableViewController, CLLocationManagerDelegate, 
 		groupOn["hostUser"] = PFUser.currentUser().username
 		groupOn["time"] = NSDate()
 		groupOn["endTime"] = endDatePicker.date
-		groupOn["subject"] = listOfSubjects[subjectPicker.selectedRowInComponent(0)]
-		
+        
+		groupOn["subject"] = subject
 		groupOn["place"] = geoLoc
 		groupOn["description"] = descriptionField.text
 		group = Group(name: groupNameField.text, course: subjectPicker.selectedRowInComponent(0).description,
@@ -103,11 +94,21 @@ class CreateGroupController : UITableViewController, CLLocationManagerDelegate, 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 	}
+    
+    @IBAction func selectedGame(segue:UIStoryboardSegue) {
+        let subjectPickerViewController = segue.sourceViewController as SubjectPickerViewController
+        var selectedSubject:String = subjectPickerViewController.selectedSubject!
+        
+        subjectLabel.text = selectedSubject
+        subject = selectedSubject
+        
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-		//if segue.identifier == "CreateGroupFeedSegue" {
-		//	var fc:FeedController = segue.destinationViewController as FeedController
-		//}
-		
+        //if segue.identifier == "PickSubject" {
+          //  let subPickerViewController = segue.destinationViewController as SubjectPickerViewController
+            //subPickerViewController.selectedSubject = subject
+        //}
 	}
 }
