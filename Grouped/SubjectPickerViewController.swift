@@ -11,21 +11,20 @@ import Foundation
 
 class SubjectPickerViewController: UITableViewController {
 
-    var games:[String]!
-    var selectedGame:String? = nil
-    var selectedGameIndex:Int? = nil
+    var subjects:[String]!
+    var selectedSubject:String? = nil
+    var selectedSubIndex:Int? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        games = ["Angry Birds",
-            "Chess",
-            "Russian Roulette",
-            "Spin the Bottle",
-            "Texas Hold'em Poker",
-            "Tic-Tac-Toe"]
+        subjects = ["Calculus I & II", "Discrete Math", "Linear Algebra", "Differential Equations",
+            "Data Analysis", "Physics", "Bio Molecular Science", "Chemistry", "Data Structures & Algorithms",
+            "Computer Architecture & Organizations", "Operating Systems", "Science Technology Studies", "Pyschology", "English"]
         
-        if let game = selectedGame {
-            selectedGameIndex = find(games, game)!
+        subjects.sort{$0.lowercaseString < $1.lowercaseString}
+        
+        if let subject = selectedSubject {
+            selectedSubIndex = find(subjects, subject)!
         }
         
     }
@@ -42,14 +41,14 @@ class SubjectPickerViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return games.count
+        return subjects.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("GameCell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = games[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("SubjectCell", forIndexPath: indexPath) as UITableViewCell
+        cell.textLabel?.text = subjects[indexPath.row]
         
-        if indexPath.row == selectedGameIndex {
+        if indexPath.row == selectedSubIndex {
             cell.accessoryType = .Checkmark
         } else {
             cell.accessoryType = .None
@@ -63,13 +62,13 @@ class SubjectPickerViewController: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         //Other row is selected - need to deselect it
-        if let index = selectedGameIndex {
+        if let index = selectedSubIndex {
             let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
             cell?.accessoryType = .None
         }
         
-        selectedGameIndex = indexPath.row
-        selectedGame = games[indexPath.row]
+        selectedSubIndex = indexPath.row
+        selectedSubject = subjects[indexPath.row]
         
         //update the checkmark for the current row
         let cell = tableView.cellForRowAtIndexPath(indexPath)
@@ -77,14 +76,14 @@ class SubjectPickerViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SaveSelectedGame" {
+       // if segue.identifier == "SaveSelectedGame" {
             let cell = sender as UITableViewCell
             let indexPath = tableView.indexPathForCell(cell)
-            selectedGameIndex = indexPath?.row
-            if let index = selectedGameIndex {
-                selectedGame = games[index]
+            selectedSubIndex = indexPath?.row
+            if let index = selectedSubIndex {
+                selectedSubject = subjects[index]
             }
-        }
+        //}
     }
 
 }
