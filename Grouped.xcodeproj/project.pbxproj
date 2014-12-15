@@ -31,6 +31,7 @@
 		20E299ED19F9FE1F00C1A61D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E319F9FE1F00C1A61D /* StoreKit.framework */; };
 		20E299EE19F9FE1F00C1A61D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E419F9FE1F00C1A61D /* SystemConfiguration.framework */; };
 		20EFCE961A3F388200354896 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20EFCE941A3F388200354896 /* Main.storyboard */; };
+		20EFCE981A3F793000354896 /* SubjectPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFCE971A3F793000354896 /* SubjectPickerViewController.swift */; };
 		522331D81A22F5F50071FF2B /* grouped_bigger_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 522331D71A22F5F50071FF2B /* grouped_bigger_logo.png */; };
 		790C6A1C1A32C36000BFFA25 /* MenuForGroupFinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790C6A1B1A32C36000BFFA25 /* MenuForGroupFinding.swift */; };
 		791EC4631A0803F3006E208E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791EC4621A0803F3006E208E /* User.swift */; };
@@ -81,6 +82,7 @@
 		20E299E319F9FE1F00C1A61D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		20E299E419F9FE1F00C1A61D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		20EFCE951A3F388200354896 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Grouped/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		20EFCE971A3F793000354896 /* SubjectPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectPickerViewController.swift; sourceTree = "<group>"; };
 		522331D71A22F5F50071FF2B /* grouped_bigger_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grouped_bigger_logo.png; sourceTree = "<group>"; };
 		790C6A1B1A32C36000BFFA25 /* MenuForGroupFinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuForGroupFinding.swift; sourceTree = "<group>"; };
 		791EC4621A0803F3006E208E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				20B9504119DB6253003BA007 /* FeedController.swift */,
 				20B9504519DB6E23003BA007 /* NewPostController.swift */,
 				791EC4621A0803F3006E208E /* User.swift */,
+				20EFCE971A3F793000354896 /* SubjectPickerViewController.swift */,
 				796CBE291A0809A300228A4F /* Group.swift */,
 				20AA7BC919D22C5300960290 /* Supporting Files */,
 			);
@@ -330,6 +333,7 @@
 				791EC4631A0803F3006E208E /* User.swift in Sources */,
 				20B9504019DB6160003BA007 /* CustomCell.swift in Sources */,
 				79F1D4AD1A1905E30011D5CF /* CreateGroupController.swift in Sources */,
+				20EFCE981A3F793000354896 /* SubjectPickerViewController.swift in Sources */,
 				20AA7BCC19D22C5300960290 /* AppDelegate.swift in Sources */,
 				79F7640D1A180B42009D0283 /* FindController.swift in Sources */,
 				79AB76831A18166300319EE2 /* CustomGroupCell.swift in Sources */,

@@ -192,10 +192,10 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
     }
     
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-		if segue.identifier == "CreateGroupSegue" {
-			var cgc:CreateGroupController = segue.destinationViewController as CreateGroupController
-		}
-		else if segue.identifier == "ViewGroupSegue" {
+		//if segue.identifier == "CreateGroupSegue" {
+			//var cgc:UITableViewController = segue.destinationViewController as UITableViewController
+		//}
+		if segue.identifier == "ViewGroupSegue" {
 			var jgc:JoinGroupController = segue.destinationViewController as JoinGroupController
             
             if sender as UITableView == self.searchDisplayController!.searchResultsTableView{
@@ -205,9 +205,6 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
             else {
                 var idx = table.indexPathForSelectedRow()!.row
                 group = GroupData[idx]
-                    //Group(name: GroupData[idx].name, host: GroupData[idx].host,
-                    //course: GroupData[idx].course, location: GroupData[idx].location,
-                    //description: GroupData[idx].group_description, time: GroupData[idx].time)
             }
 		}
 		else if segue.identifier == "ProfileController" {
