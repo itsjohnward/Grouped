@@ -31,11 +31,12 @@ class CustomGroupCell: UITableViewCell {
 	}
 	
 	
-	func loadItem(groupName: String, subject: String, time: NSDate, coordinates: PFGeoPoint, homeGeo: PFGeoPoint?) {
-		self.groupName.text = groupName
-		subjectLabel.text = subject
+    func loadItem(group: Group, homeGeo: PFGeoPoint?){
+        
+		self.groupName.text = group.name
+		subjectLabel.text = group.course
 		
-		var diffTime = time.timeIntervalSinceNow
+		var diffTime = group.time.timeIntervalSinceNow
 		if diffTime < 0 {
 			timeLabel2.text = "Time: Now"
 		} else {
@@ -43,18 +44,15 @@ class CustomGroupCell: UITableViewCell {
 		}
 		
 		if homeGeo != nil {
-			var latDiff = coordinates.latitude - homeGeo!.latitude
-			var longDiff = coordinates.longitude - homeGeo!.longitude
+			var latDiff = group.location.latitude - homeGeo!.latitude
+			var longDiff = group.location.longitude - homeGeo!.longitude
 			
 			var diff = pow(pow(latDiff, 2)+pow(longDiff, 2), 0.5)
             
             var myLat:Float = Float(homeGeo!.latitude)
             var myLon:Float = Float(homeGeo!.longitude)
             
-            var desLat:Float = Float(coordinates.latitude)
-            var desLon:Float = Float(coordinates.longitude)
-            
-            var distance:Double = calcDistance(myLat, myLon: myLon, desLat: desLat, desLon: desLon)
+            var distance:Double = group.calcDistance(myLat, myLon: myLon)
             
 			distanceAmountLabel.text = "\(distance) Mi"
             
@@ -62,28 +60,5 @@ class CustomGroupCell: UITableViewCell {
 			distanceAmountLabel.hidden = true
 		}
 	}
-    
-    //Calculates the distance from two coordinates
-    func calcDistance(myLat: Float, myLon: Float, desLat: Float, desLon: Float)->Double{
-        
-        //My Current Location
-        var myCLLat:CLLocationDegrees = CLLocationDegrees(myLat)
-        var myCLLon:CLLocationDegrees = CLLocationDegrees(myLon)
-        var myLocation:CLLocation = CLLocation(latitude: myCLLat, longitude: myCLLon)
-        
-        //Desired Location
-        var desCLLat:CLLocationDegrees = CLLocationDegrees(desLat)
-        var desCLLon:CLLocationDegrees = CLLocationDegrees(desLon)
-        var desLocation:CLLocation = CLLocation(latitude: desCLLat, longitude: desCLLon)
-        
-        //Retrieves Distance between two locations
-        var dist:CLLocationDistance = myLocation.distanceFromLocation(desLocation)
-        
-        //Converts to Miles
-        var distInMiles:Double = floor( (dist * 0.00062137) * 10) / 10
-        
-        //Return Double in Mile Units
-        return distInMiles
-    }
     
 }

@@ -90,7 +90,7 @@ class CreateGroupController : UIViewController, CLLocationManagerDelegate, UIPic
 		groupOn["place"] = geoLoc
 		groupOn["description"] = descriptionField.text
 		group = Group(name: groupNameField.text, course: subjectPicker.selectedRowInComponent(0).description,
-			location: geoLoc!, description: descriptionField.text, time: NSDate())
+            location: geoLoc!, description: descriptionField.text, time: NSDate(), homeGeo: geoLoc!)
 		
 		var message = PFObject(className:"Message")
 		message["user"] = PFUser.currentUser().username
