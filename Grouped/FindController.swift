@@ -146,8 +146,9 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
     func filterContentForSearchText(searchText: String) {
         // Filter the array using the filter method
         self.filteredData = self.GroupData.filter({( group: Group) -> Bool in
-        let stringMatch = group.name.rangeOfString(searchText)
-        return (stringMatch != nil)
+        let stringCourse = (group.course.lowercaseString).rangeOfString(searchText.lowercaseString)
+        let stringMatch = (group.name.lowercaseString).rangeOfString(searchText.lowercaseString)
+        return (stringMatch != nil) || (stringCourse != nil)
         })
     }
     
