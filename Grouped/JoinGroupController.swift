@@ -11,14 +11,17 @@ import Foundation
 class JoinGroupController: UIViewController {
 	
 	@IBOutlet weak var titleLabel: UINavigationItem!
-	@IBOutlet weak var hostLabel: UITextField!
-	@IBOutlet weak var subjectLabel: UITextField!
-	@IBOutlet weak var placeLabel: UITextField!
-	@IBOutlet weak var timeLabel: UITextField!
-	@IBOutlet weak var descriptionLabel: UITextView!
+	@IBOutlet weak var hostLabel: UILabel!
+	@IBOutlet weak var subjectLabel: UILabel!
+	@IBOutlet weak var placeLabel: UILabel!
+	@IBOutlet weak var timeLabel: UILabel!
+	@IBOutlet weak var descriptionLabel: UILabel!
+	
+	@IBOutlet weak var map: MKMapView!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
 		// Do any additional setup after loading the view.
 		titleLabel.title = group?.name
 		subjectLabel.text = group?.course
@@ -33,6 +36,25 @@ class JoinGroupController: UIViewController {
 		})
 		timeLabel.text = group?.time.description
 		descriptionLabel.text = group?.group_description
+		
+		
+		//MAP STUFF
+		let location = CLLocationCoordinate2D(
+			latitude: (group?.location.latitude)!,
+			longitude: (group?.location.longitude)!
+		)
+		// 2
+		let span = MKCoordinateSpanMake(0.05, 0.05)
+		let region = MKCoordinateRegion(center: location, span: span)
+		map.setRegion(region, animated: true)
+		
+		//3
+		let annotation = MKPointAnnotation()
+		annotation.setCoordinate(location)
+		annotation.title = group?.name
+		annotation.subtitle = group?.course
+		map.addAnnotation(annotation)
+		
 	}
 	
 	override func didReceiveMemoryWarning() {
