@@ -260,6 +260,7 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="distanceAmountLabel" destination="XEe-bQ-vza" id="I4d-hk-CIR"/>
                                     <outlet property="groupName" destination="0FQ-aE-hra" id="Hxu-Wf-Ijt"/>
@@ -289,6 +290,9 @@
                                 <segment title="Location"/>
                                 <segment title="Subject"/>
                             </segments>
+                            <connections>
+                                <action selector="filterChanged:" destination="rXi-sC-fqL" eventType="valueChanged" id="2Yh-qo-Frf"/>
+                            </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" title="Menu" id="fs8-MV-Uod">
                             <connections>
@@ -301,6 +305,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
+                        <outlet property="filterControl" destination="7ib-JU-yuF" id="W1a-zc-sik"/>
                         <outlet property="searchBar" destination="HJe-UP-vUa" id="u3Q-aD-s61"/>
                         <outlet property="searchDisplayController" destination="sdi-ee-0uB" id="d5B-Fd-riP"/>
                         <outlet property="segmentSortOption" destination="OHR-th-aql" id="be0-mg-EFP"/>
@@ -554,7 +559,6 @@
         <!--Group Info-->
         <scene sceneID="c5y-Zp-3QD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hdq-sX-uFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Group Info" id="jfb-Cp-OlP" customClass="JoinGroupController" customModule="Grouped" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fn8-5X-79S"/>
@@ -651,6 +655,7 @@
                         <outlet property="titleLabel" destination="cXr-Yp-AWj" id="59G-Pt-0YY"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hdq-sX-uFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2598" y="879"/>
         </scene>
