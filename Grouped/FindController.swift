@@ -51,14 +51,6 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
         else if group.course == "Computer Science" { cell.contentView.backgroundColor = UIColor(red:19/255, green:82/255,blue:226/255,alpha:1.0) }
         else if group.course == "General Studies" { cell.contentView.backgroundColor = UIColor(red:255/255, green:153/255,blue:51/255,alpha:1.0) }
         
-        //Add Background pics
-        
-        //var imageView = UIImageView(frame: CGRectMake(10, 10, cell.frame.width - 10, cell.frame.height - 10))
-        //let image = UIImage(named: "Albert-Einstein.jpg")
-        //imageView.image = image
-        //cell.backgroundView = UIView()
-        //cell.backgroundView = imageView
-        
         return cell
     }
     
@@ -171,17 +163,8 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
           nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blackColor()]
         }
     }
-	
-	/*
-	@IBAction func logout(sender: AnyObject) {
-		navigationController?.popToRootViewControllerAnimated(true)
-	}
-	*/
     
     @IBAction func leave(segue:UIStoryboardSegue) {
-        //let subjectPickerViewController = segue.sourceViewController as SubjectPickerViewController
-        //var selectedSubject:String = subjectPickerViewController.selectedSubject!
-        
         self.navigationController?.popViewControllerAnimated(true)
     }
     
@@ -204,9 +187,6 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
     }
     
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-		//if segue.identifier == "CreateGroupSegue" {
-			//var cgc:UITableViewController = segue.destinationViewController as UITableViewController
-		//}
 		if segue.identifier == "ViewGroupSegue" {
 			var jgc:JoinGroupController = segue.destinationViewController as JoinGroupController
             
@@ -219,8 +199,5 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
                 group = GroupData[idx]
             }
 		}
-		//else if segue.identifier == "ProfileController" {
-		//	var pc:ProfileController = segue.destinationViewController as ProfileController
-		//}
     }
 }
