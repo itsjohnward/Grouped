@@ -28,7 +28,6 @@
 		20E299EA19F9FE1F00C1A61D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E019F9FE1F00C1A61D /* MobileCoreServices.framework */; };
 		20E299EB19F9FE1F00C1A61D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E119F9FE1F00C1A61D /* QuartzCore.framework */; };
 		20E299EC19F9FE1F00C1A61D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E219F9FE1F00C1A61D /* Security.framework */; };
-		20E299ED19F9FE1F00C1A61D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E319F9FE1F00C1A61D /* StoreKit.framework */; };
 		20E299EE19F9FE1F00C1A61D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E299E419F9FE1F00C1A61D /* SystemConfiguration.framework */; };
 		20EFCE961A3F388200354896 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20EFCE941A3F388200354896 /* Main.storyboard */; };
 		20EFCE981A3F793000354896 /* SubjectPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFCE971A3F793000354896 /* SubjectPickerViewController.swift */; };
@@ -79,7 +78,6 @@
 		20E299E019F9FE1F00C1A61D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		20E299E119F9FE1F00C1A61D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		20E299E219F9FE1F00C1A61D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		20E299E319F9FE1F00C1A61D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		20E299E419F9FE1F00C1A61D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		20EFCE951A3F388200354896 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Grouped/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20EFCE971A3F793000354896 /* SubjectPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectPickerViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 				20E299EB19F9FE1F00C1A61D /* QuartzCore.framework in Frameworks */,
 				2008A3FA1A1FA9030010BD02 /* MapKit.framework in Frameworks */,
 				20E299EC19F9FE1F00C1A61D /* Security.framework in Frameworks */,
-				20E299ED19F9FE1F00C1A61D /* StoreKit.framework in Frameworks */,
 				20E299EE19F9FE1F00C1A61D /* SystemConfiguration.framework in Frameworks */,
 				20E299DA19F9FDA000C1A61D /* Parse.framework in Frameworks */,
 				20E299D919F9FDA000C1A61D /* Bolts.framework in Frameworks */,
@@ -208,7 +205,6 @@
 				20E299E019F9FE1F00C1A61D /* MobileCoreServices.framework */,
 				20E299E119F9FE1F00C1A61D /* QuartzCore.framework */,
 				20E299E219F9FE1F00C1A61D /* Security.framework */,
-				20E299E319F9FE1F00C1A61D /* StoreKit.framework */,
 				20E299E419F9FE1F00C1A61D /* SystemConfiguration.framework */,
 				20E299D719F9FDA000C1A61D /* Bolts.framework */,
 				20E299D819F9FDA000C1A61D /* Parse.framework */,
@@ -267,6 +263,9 @@
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = 6QN349HHUB;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};

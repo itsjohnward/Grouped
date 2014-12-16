@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ProfileController: UITableViewController {
+class ProfileController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 	@IBOutlet weak var usernameLabel: UITextField!
 	@IBOutlet weak var nicknameLabel: UITextField!
 	@IBOutlet weak var emailLabel: UITextField!
@@ -27,6 +27,7 @@ class ProfileController: UITableViewController {
 		emailLabel.text = PFUser.currentUser()["email"] as String
 		ageLabel.text = "\(age)"
 		schoolLabel.text = PFUser.currentUser()["school"] as String
+		profilePic.image = UIImage(data: PFUser.currentUser()["picture"] as NSData)
 		
     }
     
@@ -35,13 +36,24 @@ class ProfileController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 	
+	@IBAction func saveChanges(sender: AnyObject) {
+		var data = UIImageJPEGRepresentation(profilePic.image, 0.05)
+		PFUser.currentUser()["username"] = usernameLabel.text
+		PFUser.currentUser()["name"] = nicknameLabel.text
+		PFUser.currentUser()["email"] = emailLabel.text
+		PFUser.currentUser()["age"] = ageLabel.text.toInt()
+		PFUser.currentUser()["school"] = schoolLabel.text
+		PFUser.currentUser()["picture"] = data
+		PFUser.currentUser().save()
+	}
 	@IBAction func saveChanges(sender: UIButton) {
-        
+		var data = UIImageJPEGRepresentation(profilePic.image, 0.05)
         PFUser.currentUser()["username"] = usernameLabel.text
         PFUser.currentUser()["name"] = nicknameLabel.text
         PFUser.currentUser()["email"] = emailLabel.text
         PFUser.currentUser()["age"] = ageLabel.text.toInt()
-        PFUser.currentUser()["school"] = schoolLabel.text
+		PFUser.currentUser()["school"] = schoolLabel.text
+		PFUser.currentUser()["picture"] = data
         PFUser.currentUser().save()
         
         self.navigationController?.popViewControllerAnimated(true)
@@ -53,8 +65,27 @@ class ProfileController: UITableViewController {
 			
 		}
     }
-    
-    
-
 	
+	@IBOutlet weak var profilePic: UIImageView!
+	@IBAction func pickPhoto(sender: AnyObject) {
+		var imagePickerController = UIImagePickerController()
+		
+		imagePickerController.modalPresentationStyle = UIModalPresentationStyle.CurrentContext
+		imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+		imagePickerController.delegate = self;
+		
+		self.presentViewController(imagePickerController, animated: true, completion: nil)
+	}
+	
+	func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+		profilePic.image = image
+		self.dismissViewControllerAnimated(true, completion: nil)
+	}
+	func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+		profilePic.image = (info as NSDictionary).valueForKey(UIImagePickerControllerOriginalImage) as? UIImage
+		self.dismissViewControllerAnimated(true, completion: nil)
+	}
+	func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+		self.dismissViewControllerAnimated(true, completion: nil)
+	}
 }
