@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 	
 	@IBOutlet weak var hidingSignin: UIView!
+	@IBOutlet weak var welcomeMessage: UILabel!
 	@IBOutlet weak var usernameField: UITextField!
 	@IBOutlet weak var passwordField: UITextField!
 	var defaultUser = NSUserDefaults.standardUserDefaults()
@@ -22,6 +23,7 @@ class ViewController: UIViewController {
 			PFUser.logInWithUsernameInBackground(uname as String, password: defaultUser.objectForKey("GroupedUserPass") as String, block: { (PFUser user, NSError error) -> Void in
 				if user != nil {
 					println("Sign In Successful!")
+					self.welcomeMessage.text = "Welcome \(uname!)"
 					self.performSegueWithIdentifier("GroupFindSegue", sender: self)
 				} else {
 					println("Sign In Failed!")

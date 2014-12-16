@@ -134,6 +134,7 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
 		//This function updates the location
 		geoLoc = PFGeoPoint(location: locations[0] as CLLocation)
 		refreshFeed()
+		locationManager.stopUpdatingLocation()
 	}
 	func locationManager(manager:CLLocationManager!, didFailWithError error: NSError!) {
 		var alert = UIAlertController(title: "GPS Error", message: "We cannot detect your current location.",
