@@ -32,6 +32,10 @@ class CreateGroupController : UITableViewController, CLLocationManagerDelegate {
 		super.viewDidLoad()
 		//timeStampLabel.text = NSDate().description
 		// Do any additional setup after loading the view, typically from a nib.
+		var calendar = NSCalendar.currentCalendar(); var comps = NSDateComponents()
+		comps.hour = 1
+		endDatePicker.date = calendar.dateByAddingComponents(comps, toDate: NSDate(), options: NSCalendarOptions(0))!
+		
 		locationManager = CLLocationManager()
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -82,7 +86,10 @@ class CreateGroupController : UITableViewController, CLLocationManagerDelegate {
             groupOn["name"] = groupNameField.text
             groupOn["hostUser"] = PFUser.currentUser().username
             groupOn["time"] = NSDate()
-            groupOn["endTime"] = endDatePicker.date
+			
+			var time = endDatePicker.date.timeIntervalSinceNow % (60 * 60 * 24)
+			while time < 0 { time += (60 * 60 * 24) }
+            groupOn["endTime"] = NSDate().dateByAddingTimeInterval(time)
         
             groupOn["subject"] = subject
             groupOn["place"] = geoLoc
