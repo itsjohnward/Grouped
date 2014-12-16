@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ProfileController: UIViewController {
+class ProfileController: UITableViewController {
 	@IBOutlet weak var usernameLabel: UITextField!
 	@IBOutlet weak var nicknameLabel: UITextField!
 	@IBOutlet weak var emailLabel: UITextField!
@@ -21,7 +21,7 @@ class ProfileController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
 		
 		//println("Username: \(user!.username)")
-		
+		self.navigationItem.title = "Profile"
 		var age = PFUser.currentUser()["age"] as Int
 		
 		usernameLabel.text = PFUser.currentUser()["username"] as String
@@ -37,22 +37,26 @@ class ProfileController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 	
-	@IBAction func logout(sender: UIButton) {
-		PFUser.logOut()
-		NSUserDefaults.standardUserDefaults().removeObjectForKey("GroupedUserName")
-		navigationController?.popToRootViewControllerAnimated(true)
+	@IBAction func saveChanges(sender: UIButton) {
+        
+        PFUser.currentUser()["username"] = usernameLabel.text
+        PFUser.currentUser()["name"] = nicknameLabel.text
+        PFUser.currentUser()["email"] = emailLabel.text
+        PFUser.currentUser()["age"] = ageLabel.text.toInt()
+        PFUser.currentUser()["school"] = schoolLabel.text
+        PFUser.currentUser().save()
+        
+        self.navigationController?.popViewControllerAnimated(true)
 	}
 	
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 		if segue.identifier == "saveChanges" {
 			var fc:FindController = segue.destinationViewController as FindController
-			PFUser.currentUser()["username"] = usernameLabel.text
-			PFUser.currentUser()["name"] = nicknameLabel.text
-			PFUser.currentUser()["email"] = emailLabel.text
-			PFUser.currentUser()["age"] = ageLabel.text.toInt()
-			PFUser.currentUser()["school"] = schoolLabel.text
-			PFUser.currentUser().save()
+			
 		}
     }
+    
+    
+
 	
 }

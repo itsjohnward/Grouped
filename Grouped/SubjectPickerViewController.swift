@@ -17,9 +17,7 @@ class SubjectPickerViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        subjects = ["Calculus I & II", "Discrete Math", "Linear Algebra", "Differential Equations",
-            "Data Analysis", "Physics", "Bio Molecular Science", "Chemistry", "Data Structures & Algorithms",
-            "Computer Architecture & Organizations", "Operating Systems", "Science Technology Studies", "Pyschology", "English"]
+        subjects = ["Math","Physics", "Science", "Computer Science", "Pyschology", "English", "General Studies"]
         
         subjects.sort{$0.lowercaseString < $1.lowercaseString}
         
