@@ -2,8 +2,7 @@
 //  SignUpViewController.swift
 //  Grouped
 //
-//  Created by Jonathan Samudio on 11/2/14.
-//  Copyright (c) 2014 Jonathan Samudio. All rights reserved.
+//  Copyright (c) 2014 Grouped. All rights reserved.
 //
 
 import UIKit
@@ -28,7 +27,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpUser(AnyObject) {
-        println("Sign Up User Button Tapped!")
+        //println("Sign Up User Button Tapped!")
 		
         var user = PFUser()
         user.username = usernameField.text
@@ -41,10 +40,12 @@ class SignUpViewController: UIViewController {
         
         user.signUpInBackgroundWithBlock { (Bool succeeded, NSError error) -> Void in
             if(succeeded){
-                println("Sign Up Success!")
+                //println("Sign Up Success!")
 				self.performSegueWithIdentifier("GroupFindSegue2", sender: self)
             }
-            else {println("Sign Up Failed!")}
+            else {
+				//println("Sign Up Failed!")
+			}
         }
     }
 	

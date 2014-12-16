@@ -2,8 +2,7 @@
 //  Group.swift
 //  Grouped
 //
-//  Created by Abus on 11/3/14.
-//  Copyright (c) 2014 Jonathan Samudio. All rights reserved.
+//  Copyright (c) 2014 Grouped. All rights reserved.
 //
 
 import Foundation

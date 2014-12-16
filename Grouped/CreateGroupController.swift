@@ -2,8 +2,7 @@
 //  CreateGroupController.swift
 //  Grouped
 //
-//  Created by Abus on 11/16/14.
-//  Copyright (c) 2014 Jonathan Samudio. All rights reserved.
+//  Copyright (c) 2014 Grouped. All rights reserved.
 //
 
 import Foundation
@@ -42,7 +41,7 @@ class CreateGroupController : UITableViewController, CLLocationManagerDelegate {
         
         var nav = self.navigationController?.navigationBar
         
-        println("GROUP COURSE: \(subject)")
+        //println("GROUP COURSE: \(subject)")
         if subject == "Math" { nav?.barTintColor = UIColor(red:224/255, green:72/255,blue:62/255,alpha:1.0)}
         else if subject == "Science" { nav?.barTintColor = UIColor(red:34/255, green:192/255,blue:100/255,alpha:1.0) }
         else if subject == "Computer Science" { nav?.barTintColor = UIColor(red:19/255, green:82/255,blue:226/255,alpha:1.0) }
@@ -123,7 +122,7 @@ class CreateGroupController : UITableViewController, CLLocationManagerDelegate {
         
         var nav = self.navigationController?.navigationBar
         
-        println("GROUP COURSE: \(subject)")
+        //println("GROUP COURSE: \(subject)")
         if subject == "Math" { nav?.barTintColor = UIColor(red:224/255, green:72/255,blue:62/255,alpha:1.0)}
         else if subject == "Science" { nav?.barTintColor = UIColor(red:34/255, green:192/255,blue:100/255,alpha:1.0) }
         else if subject == "Computer Science" { nav?.barTintColor = UIColor(red:19/255, green:82/255,blue:226/255,alpha:1.0) }

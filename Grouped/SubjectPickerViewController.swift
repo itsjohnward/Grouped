@@ -2,8 +2,7 @@
 //  SubjectPickerViewController.swift
 //  Grouped
 //
-//  Created by Jonathan Samudio on 12/15/14.
-//  Copyright (c) 2014 Jonathan Samudio. All rights reserved.
+//  Copyright (c) 2014 Grouped. All rights reserved.
 //
 
 import Foundation

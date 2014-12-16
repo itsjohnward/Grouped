@@ -1,9 +1,8 @@
 //
-//  FeedController.swift
+//  FindController.swift
 //  Grouped
 //
-//  Created by Jonathan Samudio on 9/30/14.
-//  Copyright (c) 2014 Jonathan Samudio. All rights reserved.
+//  Copyright (c) 2014 Grouped. All rights reserved.
 //
 
 import Foundation
@@ -68,7 +67,7 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
         self.refreshControl!.addTarget(self, action: Selector("refreshInvoked"), forControlEvents: UIControlEvents.ValueChanged)
         
         refreshFeed()
-		println("VIEW DID LOAD")
+		//println("VIEW DID LOAD")
 		super.viewDidLoad()
 	}
     
@@ -83,11 +82,11 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
         switch filterControl.selectedSegmentIndex
             {
         case 0:
-            println("Location Sort")
+            //println("Location Sort")
             GroupData.sort{$0.dist < $1.dist}
             tableView.reloadData()
         case 1:
-            println("Subject Sort")
+            //println("Subject Sort")
             GroupData.sort{($0.course.lowercaseString) < ($1.course.lowercaseString)}
             tableView.reloadData()
         default:
@@ -151,7 +150,7 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
     var start = 0;
     override func viewDidAppear(animated: Bool) {
         //Refresh data
-        println("VIEW DID APPEAR")
+        //println("VIEW DID APPEAR")
         //refreshFeed()
         tableView.reloadData()
         
