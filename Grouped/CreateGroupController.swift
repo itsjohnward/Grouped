@@ -12,8 +12,6 @@ class CreateGroupController : UITableViewController, CLLocationManagerDelegate {
 	
 	@IBOutlet weak var groupNameField: UITextField!
 	@IBOutlet weak var descriptionField: UITextView!
-	@IBOutlet weak var subjectPicker: UIPickerView!
-	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var endDatePicker: UIDatePicker!
 	@IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var subjectLabel: UILabel!
@@ -39,6 +37,17 @@ class CreateGroupController : UITableViewController, CLLocationManagerDelegate {
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		locationManager.requestWhenInUseAuthorization()
 		locationManager.startUpdatingLocation()
+        
+        var nav = self.navigationController?.navigationBar
+        
+        println("GROUP COURSE: \(subject)")
+        if subject == "Math" { nav?.barTintColor = UIColor(red:224/255, green:72/255,blue:62/255,alpha:1.0)}
+        else if subject == "Science" { nav?.barTintColor = UIColor(red:34/255, green:192/255,blue:100/255,alpha:1.0) }
+        else if subject == "Computer Science" { nav?.barTintColor = UIColor(red:19/255, green:82/255,blue:226/255,alpha:1.0) }
+        else if subject == "General Studies" { nav?.barTintColor = UIColor(red:255/255, green:153/255,blue:51/255,alpha:1.0) }
+        
+        nav?.tintColor = UIColor.whiteColor()
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 	}
 	
 	func locationManager(manager:CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -67,28 +76,31 @@ class CreateGroupController : UITableViewController, CLLocationManagerDelegate {
 			println("GPS isn't ready yet")
 			return
 		}
+        else if(groupNameField.text != "") {
 		
-		var groupOn = PFObject(className:"Group")
-		groupOn["name"] = groupNameField.text
-		groupOn["hostUser"] = PFUser.currentUser().username
-		groupOn["time"] = NSDate()
-		groupOn["endTime"] = endDatePicker.date
+            var groupOn = PFObject(className:"Group")
+            groupOn["name"] = groupNameField.text
+            groupOn["hostUser"] = PFUser.currentUser().username
+            groupOn["time"] = NSDate()
+            groupOn["endTime"] = endDatePicker.date
         
-		groupOn["subject"] = subject
-		groupOn["place"] = geoLoc
-		groupOn["description"] = descriptionField.text
-		group = Group(name: groupNameField.text, course: subjectPicker.selectedRowInComponent(0).description,
-            location: geoLoc!, description: descriptionField.text, time: NSDate(), homeGeo: geoLoc!)
+            groupOn["subject"] = subject
+            groupOn["place"] = geoLoc
+            groupOn["description"] = descriptionField.text
+            
+            group = Group(name: groupNameField.text, course: subject,
+                location: geoLoc!, description: descriptionField.text, time: NSDate(), homeGeo: geoLoc!)
 		
-		var message = PFObject(className:"Message")
-		message["user"] = PFUser.currentUser().username
-		message["group"] = group?.name
-		message["message"] = "Welcome to \(group!.name)!"
-		message.save()
+            var message = PFObject(className:"Message")
+            message["user"] = PFUser.currentUser().username
+            message["group"] = group?.name
+            message["message"] = "Welcome to \(group!.name)!"
+            message.save()
 		
-		if groupOn.save() {
-			self.performSegueWithIdentifier("CreateGroupFeedSegue", sender: self)
-		}
+            if groupOn.save() {
+                self.performSegueWithIdentifier("CreateGroupFeedSegue", sender: self)
+            }
+        }
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -103,6 +115,18 @@ class CreateGroupController : UITableViewController, CLLocationManagerDelegate {
         subject = selectedSubject
         
         self.navigationController?.popViewControllerAnimated(true)
+        
+        var nav = self.navigationController?.navigationBar
+        
+        println("GROUP COURSE: \(subject)")
+        if subject == "Math" { nav?.barTintColor = UIColor(red:224/255, green:72/255,blue:62/255,alpha:1.0)}
+        else if subject == "Science" { nav?.barTintColor = UIColor(red:34/255, green:192/255,blue:100/255,alpha:1.0) }
+        else if subject == "Computer Science" { nav?.barTintColor = UIColor(red:19/255, green:82/255,blue:226/255,alpha:1.0) }
+        else if subject == "General Studies" { nav?.barTintColor = UIColor(red:255/255, green:153/255,blue:51/255,alpha:1.0) }
+        
+        nav?.tintColor = UIColor.whiteColor()
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
     }
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {

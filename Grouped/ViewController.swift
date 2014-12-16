@@ -59,6 +59,14 @@ class ViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
     }
+    
+    @IBAction func signOut(segue:UIStoryboardSegue) {
+        println("SIGNED OUT FUNCTION")
+        hidingSignin.hidden = true
+        PFUser.logOut()
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("GroupedUserName")
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "SignUpSegue" {
