@@ -26,7 +26,12 @@ class ProfileController: UITableViewController, UIImagePickerControllerDelegate,
 		emailLabel.text = PFUser.currentUser()["email"] as String
 		ageLabel.text = "\(age)"
 		schoolLabel.text = PFUser.currentUser()["school"] as String
-		profilePic.image = UIImage(data: PFUser.currentUser()["picture"] as NSData)
+		if ( PFUser.currentUser()["picture"] == nil ) {
+			
+		}
+		else {
+			profilePic.image = UIImage(data: PFUser.currentUser()["picture"] as NSData)
+		}
 		
     }
     
