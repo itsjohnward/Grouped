@@ -73,8 +73,7 @@ class ViewController: UIViewController {
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "SignUpSegue" {
 			var suvc:SignUpViewController = segue.destinationViewController as SignUpViewController
-			suvc.usernameField.text = usernameField.text
-			suvc.passwordField.text = passwordField.text
+			
 		}
 		else if segue.identifier == "GroupFindSegue" {
 			var fc:FindController = segue.destinationViewController as FindController
