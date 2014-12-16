@@ -109,7 +109,8 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
         GroupData = [Group]()
         
         var query = PFQuery(className: "Group")
-        query.whereKey("place" , nearGeoPoint:geoLoc, withinMiles:100.0)
+		query.whereKey("place" , nearGeoPoint:geoLoc, withinMiles:100.0)
+		query.whereKey("endTime", greaterThanOrEqualTo: NSDate())
         tableData += query.findObjects() as [PFObject]
         
         for(var i = 0; i < tableData.count; i++){
@@ -119,9 +120,10 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
             var location = tableData[i]["place"] as PFGeoPoint
             var desc = tableData[i]["description"] as String
             var host = tableData[i]["hostUser"] as String
-            var time = tableData[i]["time"] as NSDate
+			var time = tableData[i]["time"] as NSDate
+			var endTime = tableData[i]["endTime"] as NSDate
             var arrGroup = Group(name: name, host: host, course: subject, location: location,
-                description: desc, time: time, homeGeo: geoLoc!)
+                description: desc, time: time, endTime: endTime, homeGeo: geoLoc!)
             GroupData.append(arrGroup)
         }
         GroupData.sort{$0.dist < $1.dist}
@@ -131,6 +133,7 @@ class FindController:  UITableViewController, UISearchDisplayDelegate, UISearchB
 	func locationManager(manager:CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
 		//This function updates the location
 		geoLoc = PFGeoPoint(location: locations[0] as CLLocation)
+		refreshFeed()
 	}
 	func locationManager(manager:CLLocationManager!, didFailWithError error: NSError!) {
 		var alert = UIAlertController(title: "GPS Error", message: "We cannot detect your current location.",

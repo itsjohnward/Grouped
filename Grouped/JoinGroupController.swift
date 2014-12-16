@@ -34,7 +34,9 @@ class JoinGroupController: UIViewController {
 		geocoder.reverseGeocodeLocation(loc, completionHandler: { (placemark, error) -> Void in
 			self.placeLabel.text = (placemark[0] as CLPlacemark).name
 		})
-		timeLabel.text = group?.time.description
+		let formatter = NSDateFormatter()
+		formatter.dateFormat = "hh:mm a"
+		timeLabel.text = "Started: \(formatter.stringFromDate(group!.time)), Ends: \(formatter.stringFromDate(group!.endTime))"
 		descriptionLabel.text = group?.group_description
 		
 		
