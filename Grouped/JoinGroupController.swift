@@ -62,7 +62,10 @@ class JoinGroupController: UIViewController {
         else if group?.course == "Science" { nav?.barTintColor = UIColor(red:34/255, green:192/255,blue:100/255,alpha:1.0) }
         else if group?.course == "Computer Science" { nav?.barTintColor = UIColor(red:19/255, green:82/255,blue:226/255,alpha:1.0) }
         else if group?.course == "General Studies" { nav?.barTintColor = UIColor(red:255/255, green:153/255,blue:51/255,alpha:1.0) }
-
+        else if group?.course == "English" { nav?.barTintColor = UIColor(red:153/255, green:51/255,blue:153/255,alpha:1.0) }
+        else if group?.course == "Physics" { nav?.barTintColor = UIColor(red:153/255, green:153/255,blue:102/255,alpha:1.0) }
+        else if group?.course == "Psychology" { nav?.barTintColor = UIColor(red:0/255, green:153/255,blue:153/255,alpha:1.0) }
+        
         nav?.tintColor = UIColor.whiteColor()
         nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 		
