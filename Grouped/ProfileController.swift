@@ -18,9 +18,7 @@ class ProfileController: UITableViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-		
-		//println("Username: \(user!.username)")
+
 		self.navigationItem.title = "Profile"
 		var age = PFUser.currentUser()["age"] as Int
 		

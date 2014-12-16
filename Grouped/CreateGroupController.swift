@@ -27,10 +27,8 @@ class CreateGroupController : UITableViewController, CLLocationManagerDelegate {
 	}
 	
 	override func viewDidLoad() {
-		//scrollView.contentSize = CGSizeMake(self.view.frame.width, 1200)
 		
 		super.viewDidLoad()
-		//timeStampLabel.text = NSDate().description
 		// Do any additional setup after loading the view, typically from a nib.
 		var calendar = NSCalendar.currentCalendar(); var comps = NSDateComponents()
 		comps.hour = 1
@@ -135,11 +133,4 @@ class CreateGroupController : UITableViewController, CLLocationManagerDelegate {
         nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
     }
-	
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        //if segue.identifier == "PickSubject" {
-          //  let subPickerViewController = segue.destinationViewController as SubjectPickerViewController
-            //subPickerViewController.selectedSubject = subject
-        //}
-	}
 }
