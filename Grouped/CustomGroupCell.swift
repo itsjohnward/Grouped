@@ -17,7 +17,7 @@ class CustomGroupCell: UITableViewCell {
 	@IBOutlet weak var subjectLabel: UILabel!
 	@IBOutlet weak var distanceAmountLabel: UILabel!
 	@IBOutlet weak var timeLabel: UIView!//Don't use; leave it alone; references to the View itself
-	@IBOutlet weak var timeLabel2: UILabel!
+	//@IBOutlet weak var timeLabel2: UILabel!
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -34,12 +34,12 @@ class CustomGroupCell: UITableViewCell {
 		self.groupName.text = group.name
 		subjectLabel.text = group.course
 		
-		var diffTime = group.time.timeIntervalSinceNow
+		/*var diffTime = group.time.timeIntervalSinceNow
 		if diffTime < 0 {
 			timeLabel2.text = "Time: Now"
 		} else {
 			timeLabel2.text = "Time: \(diffTime) seconds from now"
-		}
+		}*/
 		
 		if homeGeo != nil {
 			var latDiff = group.location.latitude - homeGeo!.latitude

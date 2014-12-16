@@ -141,19 +141,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0FQ-aE-hra">
-                                            <rect key="frame" x="8" y="8" width="288" height="28"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="8" y="8" width="584" height="28"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ne-xg-LMb">
                                             <rect key="frame" x="8" y="44" width="288" height="27"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wG6-91-mEi">
-                                            <rect key="frame" x="304" y="8" width="288" height="28"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -167,41 +161,23 @@
                                     </subviews>
                                     <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                     <constraints>
-                                        <constraint firstItem="XEe-bQ-vza" firstAttribute="top" secondItem="wG6-91-mEi" secondAttribute="bottom" constant="8" id="1lu-jt-xfB"/>
-                                        <constraint firstItem="wG6-91-mEi" firstAttribute="trailing" secondItem="EdT-6c-Egl" secondAttribute="trailingMargin" id="L5Q-ho-DcG"/>
-                                        <constraint firstItem="XEe-bQ-vza" firstAttribute="width" secondItem="wG6-91-mEi" secondAttribute="width" id="LGZ-Mu-j8B"/>
-                                        <constraint firstItem="wG6-91-mEi" firstAttribute="top" secondItem="EdT-6c-Egl" secondAttribute="topMargin" id="LWm-Us-Epp"/>
                                         <constraint firstItem="1Ne-xg-LMb" firstAttribute="bottom" secondItem="EdT-6c-Egl" secondAttribute="bottomMargin" id="Myx-fo-Kez"/>
                                         <constraint firstItem="XEe-bQ-vza" firstAttribute="bottom" secondItem="EdT-6c-Egl" secondAttribute="bottomMargin" id="NDv-Hl-D6J"/>
-                                        <constraint firstItem="wG6-91-mEi" firstAttribute="bottom" secondItem="EdT-6c-Egl" secondAttribute="bottomMargin" id="NQF-6F-8Zy"/>
                                         <constraint firstItem="1Ne-xg-LMb" firstAttribute="width" secondItem="0FQ-aE-hra" secondAttribute="width" id="PYE-DR-FKD"/>
                                         <constraint firstItem="1Ne-xg-LMb" firstAttribute="top" secondItem="0FQ-aE-hra" secondAttribute="bottom" constant="8" id="Qdb-ZW-mee"/>
-                                        <constraint firstItem="1Ne-xg-LMb" firstAttribute="height" secondItem="wG6-91-mEi" secondAttribute="height" id="QvW-6Z-oGc"/>
                                         <constraint firstItem="XEe-bQ-vza" firstAttribute="trailing" secondItem="EdT-6c-Egl" secondAttribute="trailingMargin" id="T21-X1-2yv"/>
+                                        <constraint firstItem="0FQ-aE-hra" firstAttribute="trailing" secondItem="EdT-6c-Egl" secondAttribute="trailingMargin" id="UwX-1H-eQ0"/>
                                         <constraint firstItem="1Ne-xg-LMb" firstAttribute="leading" secondItem="EdT-6c-Egl" secondAttribute="leadingMargin" id="XE5-nz-CnY"/>
-                                        <constraint firstItem="wG6-91-mEi" firstAttribute="height" secondItem="0FQ-aE-hra" secondAttribute="height" id="XPS-qD-MDz"/>
                                         <constraint firstItem="XEe-bQ-vza" firstAttribute="leading" secondItem="1Ne-xg-LMb" secondAttribute="trailing" constant="8" id="ZKm-vc-iJX"/>
-                                        <constraint firstItem="XEe-bQ-vza" firstAttribute="height" secondItem="wG6-91-mEi" secondAttribute="height" id="bTB-nl-6I5"/>
-                                        <constraint firstItem="XEe-bQ-vza" firstAttribute="leading" secondItem="wG6-91-mEi" secondAttribute="trailing" constant="8" id="d8y-or-0MN"/>
-                                        <constraint firstItem="1Ne-xg-LMb" firstAttribute="width" secondItem="wG6-91-mEi" secondAttribute="width" id="dRf-hH-4xW"/>
                                         <constraint firstItem="0FQ-aE-hra" firstAttribute="top" secondItem="EdT-6c-Egl" secondAttribute="topMargin" id="dtw-g4-tJU"/>
-                                        <constraint firstItem="wG6-91-mEi" firstAttribute="leading" secondItem="0FQ-aE-hra" secondAttribute="trailing" constant="8" id="eiO-eD-A5p"/>
                                         <constraint firstItem="1Ne-xg-LMb" firstAttribute="height" secondItem="0FQ-aE-hra" secondAttribute="height" id="gkQ-BU-iXt"/>
                                         <constraint firstItem="1Ne-xg-LMb" firstAttribute="width" secondItem="XEe-bQ-vza" secondAttribute="width" id="hBG-5k-VOW"/>
                                         <constraint firstItem="0FQ-aE-hra" firstAttribute="leading" secondItem="EdT-6c-Egl" secondAttribute="leadingMargin" id="iPm-GE-sWd"/>
                                         <constraint firstItem="1Ne-xg-LMb" firstAttribute="height" secondItem="XEe-bQ-vza" secondAttribute="height" id="lhr-rk-K1B"/>
-                                        <constraint firstItem="wG6-91-mEi" firstAttribute="leading" secondItem="1Ne-xg-LMb" secondAttribute="trailing" constant="8" id="pkM-lp-zaF"/>
-                                        <constraint firstItem="wG6-91-mEi" firstAttribute="width" secondItem="0FQ-aE-hra" secondAttribute="width" id="qQX-X2-ebD"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="QvW-6Z-oGc"/>
-                                            <exclude reference="dRf-hH-4xW"/>
-                                            <exclude reference="NQF-6F-8Zy"/>
-                                            <exclude reference="pkM-lp-zaF"/>
-                                            <exclude reference="LGZ-Mu-j8B"/>
-                                            <exclude reference="bTB-nl-6I5"/>
-                                            <exclude reference="d8y-or-0MN"/>
+                                            <exclude reference="PYE-DR-FKD"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -211,7 +187,6 @@
                                     <outlet property="groupName" destination="0FQ-aE-hra" id="Hxu-Wf-Ijt"/>
                                     <outlet property="subjectLabel" destination="1Ne-xg-LMb" id="wl7-fm-iO4"/>
                                     <outlet property="timeLabel" destination="EdT-6c-Egl" id="OKZ-yg-6LK"/>
-                                    <outlet property="timeLabel2" destination="wG6-91-mEi" id="oMc-vn-dFe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
