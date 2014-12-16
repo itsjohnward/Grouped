@@ -74,14 +74,12 @@ class SubjectPickerViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-       // if segue.identifier == "SaveSelectedGame" {
             let cell = sender as UITableViewCell
             let indexPath = tableView.indexPathForCell(cell)
             selectedSubIndex = indexPath?.row
             if let index = selectedSubIndex {
                 selectedSubject = subjects[index]
             }
-        //}
     }
 
 }
